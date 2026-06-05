@@ -1374,7 +1374,12 @@
         formData.append('question', q);
         if (selectedImage) formData.append('image', selectedImage);
 
-        const res = await fetch(API_URL + '/api/reason', { method: 'POST', body: formData });
+        const res = await fetch(API_URL + '/api/reason', {
+          method: 'POST',
+          body: formData,
+          mode: 'cors'
+        });
+        
 
         if (!res.ok) throw new Error('API error ' + res.status);
         const data = await res.json();
