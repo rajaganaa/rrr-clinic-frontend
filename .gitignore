@@ -1,0 +1,10 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Developer tools
+.vscode/
+.idea/
+
+# Scripts
+generate_icons.py
