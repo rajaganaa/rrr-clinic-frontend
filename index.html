@@ -1445,53 +1445,109 @@
       }
     }
 
+    // REPLACE your entire showResponse function with this in index.html
+
     function showResponse(data) {
       document.getElementById('loading-card').style.display = 'none';
 
-      const sakshi = data.sakshi || {};
+      const sakshi   = data.sakshi   || {};
       const ahamkara = data.ahamkara || {};
-      const buddhi = data.buddhi || {};
+      const buddhi   = data.buddhi   || {};
+      const sr       = buddhi.structured_response || {};
 
-      // Final answer
-      document.getElementById('final-answer').textContent =
-        sakshi.final_answer || data.final_answer || 'No answer received.';
+      // ── Confidence (fix: score is already 0-100) ─────────────────────────
+      const rawConf  = ahamkara.confidence_score || 0;
+      const confPct  = rawConf > 1 ? Math.round(rawConf) : Math.round(rawConf * 100);
+      document.getElementById('conf-label').textContent = `Confidence: ${confPct}%`;
+      document.getElementById('conf-fill').style.width  = confPct + '%';
+      document.getElementById('conf-fill').style.background =
+        confPct >= 70 ? 'var(--green)' : confPct >= 40 ? 'var(--amber)' : 'var(--rose)';
 
-      // Render structured response sections
-      const sr = data.structured_response || buddhi.structured_response || {};
-      let structuredHTML = '';
+      // ── Build HTML ────────────────────────────────────────────────────────
+      let html = '';
 
-      if (sr.summary) {
-        structuredHTML += `<div class="sr-section"><div class="sr-label">SUMMARY</div><div class="sr-text">${sr.summary}</div></div>`;
+      // Vision card
+      const v = data.vision || {};
+      const hasVision = v.brand_name && !['Not visible','Not detected','undefined','null',''].includes(String(v.brand_name));
+      if (hasVision) {
+        html += `<div style="background:rgba(57,208,216,0.08);border:1px solid rgba(57,208,216,0.25);border-radius:12px;padding:12px;margin-bottom:12px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--cyan);margin-bottom:10px;display:flex;align-items:center;gap:6px">
+            👁 VISION EXTRACTION
+            <span style="margin-left:auto;font-size:9px;background:rgba(57,208,216,0.1);border:1px solid rgba(57,208,216,0.2);color:var(--cyan);padding:2px 6px;border-radius:10px">GPT-4o Vision</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:6px">
+            ${v.brand_name ? `<div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--txt2);font-weight:600">Brand</span><span style="color:var(--txt0);font-weight:500">${v.brand_name}</span></div>` : ''}
+            ${v.generic_name && v.generic_name !== 'Not detected' ? `<div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--txt2);font-weight:600">Generic</span><span style="color:var(--txt0);font-weight:500">${v.generic_name}</span></div>` : ''}
+            ${v.strength && v.strength !== 'Not visible' ? `<div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--txt2);font-weight:600">Strength</span><span style="color:var(--txt0);font-weight:500">${v.strength}</span></div>` : ''}
+            ${v.form && v.form !== 'Not visible' ? `<div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--txt2);font-weight:600">Form</span><span style="color:var(--txt0);font-weight:500">${v.form}</span></div>` : ''}
+            ${v.manufacturer && v.manufacturer !== 'Not visible' ? `<div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--txt2);font-weight:600">Manufacturer</span><span style="color:var(--txt0);font-weight:500">${v.manufacturer}</span></div>` : ''}
+          </div>
+        </div>`;
       }
+
+      // Main answer prose
+      const mainAnswer = sakshi.final_answer || data.final_answer || '';
+      if (mainAnswer) {
+        html += `<div style="font-size:14px;line-height:1.75;color:var(--txt0);margin-bottom:14px">${mainAnswer}</div>`;
+      }
+
+      // Structured sections
+      if (sr.summary && sr.summary !== mainAnswer) {
+        html += `<div style="background:var(--bg2);border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 12px;margin-bottom:8px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--txt2);text-transform:uppercase;margin-bottom:4px">Summary</div>
+          <div style="font-size:13px;color:var(--txt0);line-height:1.6">${sr.summary}</div>
+        </div>`;
+      }
+
       if (sr.uses && sr.uses.length) {
-        structuredHTML += `<div class="sr-section"><div class="sr-label">USES</div><ul class="sr-list">${sr.uses.map(u => `<li>${u}</li>`).join('')}</ul></div>`;
-      }
-      if (sr.dosage) {
-        structuredHTML += `<div class="sr-section sr-dosage"><div class="sr-label">DOSAGE</div><div class="sr-text">${sr.dosage}</div></div>`;
-      }
-      if (sr.side_effects && sr.side_effects.length) {
-        structuredHTML += `<div class="sr-section"><div class="sr-label">SIDE EFFECTS</div><ul class="sr-list">${sr.side_effects.map(s => `<li>${s}</li>`).join('')}</ul></div>`;
-      }
-      if (sr.warnings && sr.warnings.length) {
-        const warnItems = Array.isArray(sr.warnings) ? sr.warnings : [sr.warnings];
-        structuredHTML += `<div class="sr-section sr-warn"><div class="sr-label">WARNINGS</div><ul class="sr-list">${warnItems.map(w => `<li>${w}</li>`).join('')}</ul></div>`;
+        html += `<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--txt2);text-transform:uppercase;margin-bottom:8px">💊 Uses</div>
+          <ul style="margin:0;padding-left:16px;font-size:13px;color:var(--txt1);line-height:1.8">${sr.uses.map(u=>`<li>${u}</li>`).join('')}</ul>
+        </div>`;
       }
 
-      const srContainer = document.getElementById('structured-response');
-      srContainer.innerHTML = structuredHTML;
-      srContainer.style.display = structuredHTML ? 'block' : 'none';
+      if (sr.dosage) {
+        html += `<div style="background:rgba(56,139,253,0.06);border:1px solid rgba(56,139,253,0.25);border-radius:10px;padding:10px 12px;margin-bottom:8px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--blue);text-transform:uppercase;margin-bottom:6px">⚖️ Dosage</div>
+          <div style="font-size:13px;color:var(--txt0);line-height:1.6;font-weight:500">${sr.dosage}</div>
+        </div>`;
+      }
+
+      if (sr.side_effects && sr.side_effects.length) {
+        html += `<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--amber);text-transform:uppercase;margin-bottom:8px">⚠️ Side Effects</div>
+          <ul style="margin:0;padding-left:16px;font-size:13px;color:var(--txt1);line-height:1.8">${sr.side_effects.map(s=>`<li>${s}</li>`).join('')}</ul>
+        </div>`;
+      }
+
+      if (sr.warnings && sr.warnings.length) {
+        html += `<div style="background:rgba(248,81,73,0.06);border:1px solid rgba(248,81,73,0.2);border-radius:10px;padding:10px 12px;margin-bottom:8px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--rose);text-transform:uppercase;margin-bottom:8px">🚫 Warnings</div>
+          <ul style="margin:0;padding-left:16px;font-size:13px;color:var(--txt1);line-height:1.8">${sr.warnings.map(w=>`<li>${w}</li>`).join('')}</ul>
+        </div>`;
+      }
+
+      if (sr.notes) {
+        html += `<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--txt2);text-transform:uppercase;margin-bottom:4px">📝 Notes</div>
+          <div style="font-size:12px;color:var(--txt1);line-height:1.6">${sr.notes}</div>
+        </div>`;
+      }
+
+      // Sources
+      if (data.sources && data.sources.length) {
+        html += `<div style="font-size:11px;color:var(--txt1);margin:10px 0;display:flex;flex-wrap:wrap;gap:4px;align-items:center">
+          <span style="color:var(--txt2);font-weight:700">Sources:</span>
+          ${data.sources.map(s=>`<span style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 7px;font-size:10px;color:var(--txt1)">📄 ${s}</span>`).join('')}
+        </div>`;
+      }
 
       // Disclaimer
-      document.getElementById('disclaimer').textContent =
-        sakshi.medical_disclaimer || t('disclaimer');
+      const disclaimer = sakshi.medical_disclaimer || t('disclaimer');
+      html += `<div style="margin-top:10px;padding:10px 12px;background:rgba(210,153,34,0.08);border:1px solid rgba(210,153,34,0.2);border-radius:8px;font-size:11px;color:var(--amber);line-height:1.5">${disclaimer}</div>`;
 
-      // Confidence
-      const conf = ahamkara.confidence_score || 0;
-      const confPct = conf > 1 ? Math.round(conf) : Math.round(conf * 100);
-      document.getElementById('conf-label').textContent = `Confidence: ${conf}%`;
-      document.getElementById('conf-fill').style.width = conf + '%';
-      document.getElementById('conf-fill').style.background =
-        conf >= 70 ? 'var(--green)' : conf >= 40 ? 'var(--amber)' : 'var(--rose)';
+      document.getElementById('final-answer').innerHTML = html;
+      document.getElementById('disclaimer').style.display = 'none';
 
       // Pipeline chips
       const chips = [];
@@ -1502,48 +1558,6 @@
       document.getElementById('pipeline-chips').innerHTML = chips.join('');
 
       document.getElementById('response-area').style.display = 'block';
+      document.getElementById('quick-section').style.display = 'none';
       document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-
-    function toggleInfo(card) { card.classList.toggle('open'); }
-
-    function bookWhatsApp() {
-      const msg = encodeURIComponent('Hello Dr. Rajeswari, I would like to book an appointment at Anbu Clinic.');
-      window.open(`https://wa.me/${WHATSAPP_NUM}?text=${msg}`, '_blank');
-    }
-
-    function callClinic() {
-      window.open(`tel:${CLINIC_PHONE}`, '_self');
-    }
-
-    // ── PWA Install ──────────────────────────────────────────────────────────────
-    window.addEventListener('beforeinstallprompt', e => {
-      e.preventDefault();
-      deferredPrompt = e;
-      document.getElementById('install-banner').classList.remove('hidden');
-    });
-
-    function installPWA() {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(() => {
-        deferredPrompt = null;
-        dismissInstall();
-      });
-    }
-
-    function dismissInstall() {
-      document.getElementById('install-banner').classList.add('hidden');
-    }
-
-    // Register Service Worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch(() => { });
-    }
-
-    // Init
-    updateUI();
-  </script>
-</body>
-
-</html>
