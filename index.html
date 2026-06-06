@@ -5,12 +5,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta name="theme-color" content="#0a1628" />
-  <meta name="description" content="RRR Clinic MedAssist — AI-powered medical assistant by Dr. Rajeswari M.D" />
+  <meta name="description" content="Anbu Clinic MedAssist — AI-powered medical assistant by Dr. Rajeswari M.D" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="RRR Clinic" />
+  <meta name="apple-mobile-web-app-title" content="Anbu Clinic" />
   <link rel="manifest" href="manifest.json" />
-  <title>RRR Clinic MedAssist</title>
+  <title>Anbu Clinic MedAssist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link
     href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
@@ -856,6 +856,45 @@
       background: var(--bg4);
       border-radius: 2px;
     }
+
+    /* ── STRUCTURED RESPONSE SECTIONS ── */
+    .sr-section {
+      margin-top: 12px;
+      padding: 10px 12px;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .sr-dosage {
+      border-color: var(--border-hi);
+      background: var(--blue-dim);
+    }
+    .sr-warn {
+      background: rgba(210,153,34,0.08);
+      border-color: rgba(210,153,34,0.2);
+    }
+    .sr-warn .sr-label { color: var(--amber); }
+    .sr-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: var(--txt2);
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .sr-dosage .sr-label { color: var(--blue); }
+    .sr-text {
+      font-size: 13px;
+      color: var(--txt0);
+      line-height: 1.6;
+    }
+    .sr-list {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 13px;
+      color: var(--txt1);
+      line-height: 1.7;
+    }
   </style>
 </head>
 
@@ -869,7 +908,7 @@
       </svg>
     </div>
     <div class="clinic-info">
-      <div class="clinic-name">RRR Clinic MedAssist</div>
+      <div class="clinic-name">Anbu Clinic MedAssist</div>
       <div class="clinic-doctor">Dr. Rajeswari M.D</div>
     </div>
     <button class="lang-toggle" onclick="toggleLang()">
@@ -1002,6 +1041,7 @@
           </div>
           <div class="response-body">
             <div class="final-answer" id="final-answer"></div>
+            <div id="structured-response" style="display:none; margin-top:14px;"></div>
             <div class="disclaimer" id="disclaimer"></div>
           </div>
           <div class="pipeline-chips" id="pipeline-chips"></div>
@@ -1053,7 +1093,7 @@
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
               <circle cx="12" cy="10" r="3" />
             </svg>
-            <span id="clinic-addr">RRR Clinic, Tamil Nadu</span>
+            <span id="clinic-addr">Anbu Clinic, Tamil Nadu</span>
           </div>
           <div class="detail-row">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1175,7 +1215,7 @@
       </div>
 
       <div style="text-align:center; padding: 16px 0; font-size: 11px; color: var(--txt2);">
-        RRR Clinic MedAssist v1.0 · Powered by Antahkarana AI<br />
+        Anbu Clinic MedAssist v1.0 · Powered by Antahkarana AI<br />
         © 2026 Dr. Rajeswari M.D · Built by Rajaganapathy M
       </div>
     </div>
@@ -1185,7 +1225,7 @@
   <!-- INSTALL BANNER -->
   <div id="install-banner" class="hidden">
     <div class="install-text">
-      <strong id="install-title">Install RRR Clinic App</strong>
+      <strong id="install-title">Install Anbu Clinic App</strong>
       <span id="install-sub">Add to home screen — works offline</span>
     </div>
     <button class="install-btn" id="install-btn" onclick="installPWA()">Install</button>
@@ -1223,7 +1263,7 @@
         infoLabel: 'About this app',
         aiTitle: 'How the AI works', safeTitle: 'Safety & Disclaimer',
         techTitle: 'Technology', devTitle: 'Developer',
-        installTitle: 'Install RRR Clinic App', installSub: 'Add to home screen — works offline',
+        installTitle: 'Install Anbu Clinic App', installSub: 'Add to home screen — works offline',
         disclaimer: '⚠ Medical disclaimer: This is AI-generated information only. Please consult Dr. Rajeswari before taking any medication.',
       },
       ta: {
@@ -1245,7 +1285,7 @@
         infoLabel: 'இந்த செயலியைப் பற்றி',
         aiTitle: 'AI எப்படி வேலை செய்கிறது', safeTitle: 'பாதுகாப்பு & மறுப்பு',
         techTitle: 'தொழில்நுட்பம்', devTitle: 'டெவலப்பர்',
-        installTitle: 'RRR கிளினிக் செயலியை நிறுவுங்கள்', installSub: 'முகப்பு திரையில் சேர்க்கவும்',
+        installTitle: 'அன்பு கிளினிக் செயலியை நிறுவுங்கள்', installSub: 'முகப்பு திரையில் சேர்க்கவும்',
         disclaimer: '⚠ மருத்துவ மறுப்பு: இது AI உருவாக்கிய தகவல் மட்டுமே. எந்த மருந்தும் எடுப்பதற்கு முன் டாக்டர் ராஜேஸ்வரியை அணுகவும்.',
       }
     };
@@ -1416,6 +1456,31 @@
       document.getElementById('final-answer').textContent =
         sakshi.final_answer || data.final_answer || 'No answer received.';
 
+      // Render structured response sections
+      const sr = data.structured_response || buddhi.structured_response || {};
+      let structuredHTML = '';
+
+      if (sr.summary) {
+        structuredHTML += `<div class="sr-section"><div class="sr-label">SUMMARY</div><div class="sr-text">${sr.summary}</div></div>`;
+      }
+      if (sr.uses && sr.uses.length) {
+        structuredHTML += `<div class="sr-section"><div class="sr-label">USES</div><ul class="sr-list">${sr.uses.map(u => `<li>${u}</li>`).join('')}</ul></div>`;
+      }
+      if (sr.dosage) {
+        structuredHTML += `<div class="sr-section sr-dosage"><div class="sr-label">DOSAGE</div><div class="sr-text">${sr.dosage}</div></div>`;
+      }
+      if (sr.side_effects && sr.side_effects.length) {
+        structuredHTML += `<div class="sr-section"><div class="sr-label">SIDE EFFECTS</div><ul class="sr-list">${sr.side_effects.map(s => `<li>${s}</li>`).join('')}</ul></div>`;
+      }
+      if (sr.warnings && sr.warnings.length) {
+        const warnItems = Array.isArray(sr.warnings) ? sr.warnings : [sr.warnings];
+        structuredHTML += `<div class="sr-section sr-warn"><div class="sr-label">WARNINGS</div><ul class="sr-list">${warnItems.map(w => `<li>${w}</li>`).join('')}</ul></div>`;
+      }
+
+      const srContainer = document.getElementById('structured-response');
+      srContainer.innerHTML = structuredHTML;
+      srContainer.style.display = structuredHTML ? 'block' : 'none';
+
       // Disclaimer
       document.getElementById('disclaimer').textContent =
         sakshi.medical_disclaimer || t('disclaimer');
@@ -1442,7 +1507,7 @@
     function toggleInfo(card) { card.classList.toggle('open'); }
 
     function bookWhatsApp() {
-      const msg = encodeURIComponent('Hello Dr. Rajeswari, I would like to book an appointment at RRR Clinic.');
+      const msg = encodeURIComponent('Hello Dr. Rajeswari, I would like to book an appointment at Anbu Clinic.');
       window.open(`https://wa.me/${WHATSAPP_NUM}?text=${msg}`, '_blank');
     }
 
