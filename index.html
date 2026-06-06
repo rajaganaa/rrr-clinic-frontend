@@ -1486,7 +1486,8 @@
         sakshi.medical_disclaimer || t('disclaimer');
 
       // Confidence
-      const conf = Math.round((ahamkara.confidence_score || 0) * 100);
+      const conf = ahamkara.confidence_score || 0;
+      const confPct = conf > 1 ? Math.round(conf) : Math.round(conf * 100);
       document.getElementById('conf-label').textContent = `Confidence: ${conf}%`;
       document.getElementById('conf-fill').style.width = conf + '%';
       document.getElementById('conf-fill').style.background =
