@@ -1,17 +1,30 @@
 {
-  "name": "RRR Clinic MedAssist",
-  "short_name": "RRR Clinic",
-  "description": "AI-powered medical assistant by Dr. Rajeswari M.D — Powered by Antahkarana AI",
+  "name": "Anbu Clinic MedAssist",
+  "short_name": "Anbu Clinic",
+  "description": "AI-powered medical assistant by Dr. Rajeswari M.D \u2014 Powered by Antahkarana AI",
   "start_url": "./",
   "display": "standalone",
   "background_color": "#060d1a",
   "theme_color": "#0a1628",
   "orientation": "portrait",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ],
-  "categories": ["medical", "health"],
+  "categories": [
+    "medical",
+    "health"
+  ],
   "lang": "en-IN",
   "shortcuts": [
     {
