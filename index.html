@@ -1,20 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
   <meta name="theme-color" content="#0a1628" />
-  <meta name="description" content="Anbu Clinic MedAssist — AI-powered medical assistant by Dr. Rajeswari M.D" />
+  <meta name="description" content="RRR Village Clinic MedAssist — AI-powered medical assistant by Dr. Rajeswari M.D" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  <meta name="apple-mobile-web-app-title" content="Anbu Clinic" />
+  <meta name="apple-mobile-web-app-title" content="RRR Clinic" />
   <link rel="manifest" href="manifest.json" />
-  <title>Anbu Clinic MedAssist</title>
+  <title>RRR Village Clinic MedAssist</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
-    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
   <style>
     :root {
       --bg0: #060d1a;
@@ -22,13 +19,13 @@
       --bg2: #0f1f38;
       --bg3: #162847;
       --bg4: #1e3358;
-      --border: rgba(56, 139, 253, 0.15);
-      --border-hi: rgba(56, 139, 253, 0.35);
+      --border: rgba(56,139,253,0.15);
+      --border-hi: rgba(56,139,253,0.35);
       --blue: #388bfd;
-      --blue-dim: rgba(56, 139, 253, 0.12);
-      --blue-glow: rgba(56, 139, 253, 0.2);
+      --blue-dim: rgba(56,139,253,0.12);
+      --blue-glow: rgba(56,139,253,0.2);
       --cyan: #39d0d8;
-      --cyan-dim: rgba(57, 208, 216, 0.1);
+      --cyan-dim: rgba(57,208,216,0.1);
       --green: #3fb950;
       --amber: #d29922;
       --rose: #f85149;
@@ -39,1675 +36,1022 @@
       --safe-top: env(safe-area-inset-top, 0px);
       --safe-bottom: env(safe-area-inset-bottom, 0px);
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      font-family: 'Outfit', sans-serif;
-      background: var(--bg0);
-      color: var(--txt0);
-      height: 100dvh;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+    body { font-family:'Outfit',sans-serif; background:var(--bg0); color:var(--txt0); height:100dvh; overflow:hidden; display:flex; flex-direction:column; }
 
     /* ── TOP BAR ── */
-    .topbar {
-      background: var(--bg1);
-      border-bottom: 1px solid var(--border);
-      padding: calc(12px + var(--safe-top)) 16px 12px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-shrink: 0;
-    }
-
-    .clinic-logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, #1a4a8a, #388bfd);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      box-shadow: 0 0 20px var(--blue-glow);
-    }
-
-    .clinic-logo svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .clinic-info {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .clinic-name {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--txt0);
-      letter-spacing: -0.2px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .clinic-doctor {
-      font-size: 11px;
-      color: var(--blue);
-      font-weight: 500;
-      letter-spacing: 0.3px;
-    }
-
-    .lang-toggle {
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 6px 10px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--txt1);
-      cursor: pointer;
-      display: flex;
-      gap: 6px;
-      align-items: center;
-    }
-
-    .lang-toggle span.active {
-      color: var(--blue);
-    }
+    .topbar { background:var(--bg1); border-bottom:1px solid var(--border); padding:calc(12px + var(--safe-top)) 16px 12px; display:flex; align-items:center; gap:12px; flex-shrink:0; }
+    .clinic-logo { width:42px; height:42px; border-radius:12px; background:linear-gradient(135deg,#1a4a8a,#388bfd); display:flex; align-items:center; justify-content:center; flex-shrink:0; box-shadow:0 0 20px var(--blue-glow); }
+    .clinic-logo svg { width:22px; height:22px; }
+    .clinic-info { flex:1; min-width:0; }
+    .clinic-name { font-size:15px; font-weight:700; color:var(--txt0); letter-spacing:-0.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .clinic-doctor { font-size:11px; color:var(--blue); font-weight:500; letter-spacing:0.3px; }
+    .lang-toggle { background:var(--bg3); border:1px solid var(--border); border-radius:8px; padding:6px 10px; font-size:12px; font-weight:600; color:var(--txt1); cursor:pointer; display:flex; gap:6px; align-items:center; }
+    .lang-toggle span.active { color:var(--blue); }
 
     /* ── TABS ── */
-    .tabs {
-      display: flex;
-      background: var(--bg1);
-      border-bottom: 1px solid var(--border);
-      flex-shrink: 0;
-    }
+    .tabs { display:flex; background:var(--bg1); border-bottom:1px solid var(--border); flex-shrink:0; }
+    .tab { flex:1; padding:10px 4px; display:flex; flex-direction:column; align-items:center; gap:3px; cursor:pointer; border:none; background:none; color:var(--txt2); font-family:'Outfit',sans-serif; font-size:10px; font-weight:600; letter-spacing:0.3px; transition:color 0.2s; position:relative; }
+    .tab svg { width:20px; height:20px; }
+    .tab.active { color:var(--blue); }
+    .tab.active::after { content:''; position:absolute; bottom:0; left:20%; right:20%; height:2px; background:var(--blue); border-radius:2px 2px 0 0; }
 
-    .tab {
-      flex: 1;
-      padding: 10px 4px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 3px;
-      cursor: pointer;
-      border: none;
-      background: none;
-      color: var(--txt2);
-      font-family: 'Outfit', sans-serif;
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      transition: color 0.2s;
-      position: relative;
-    }
+    /* ── CONTENT ── */
+    .content { flex:1; overflow-y:auto; overflow-x:hidden; -webkit-overflow-scrolling:touch; }
+    .screen { display:none; padding:16px; padding-bottom:calc(16px + var(--safe-bottom)); }
+    .screen.active { display:block; }
 
-    .tab svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .tab.active {
-      color: var(--blue);
-    }
-
-    .tab.active::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 20%;
-      right: 20%;
-      height: 2px;
-      background: var(--blue);
-      border-radius: 2px 2px 0 0;
-    }
-
-    /* ── MAIN CONTENT ── */
-    .content {
-      flex: 1;
-      overflow-y: auto;
-      overflow-x: hidden;
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .screen {
-      display: none;
-      padding: 16px;
-      padding-bottom: calc(16px + var(--safe-bottom));
-    }
-
-    .screen.active {
-      display: block;
-    }
-
-    /* ── ASK SCREEN ── */
-    .ask-hero {
-      background: linear-gradient(135deg, var(--bg2), var(--bg3));
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 20px;
-      margin-bottom: 16px;
-      text-align: center;
-    }
-
-    .ask-hero-icon {
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(135deg, var(--blue-dim), var(--cyan-dim));
-      border: 1px solid var(--border-hi);
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 12px;
-    }
-
-    .ask-hero-icon svg {
-      width: 28px;
-      height: 28px;
-    }
-
-    .ask-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .ask-sub {
-      font-size: 13px;
-      color: var(--txt1);
-      line-height: 1.5;
-    }
+    /* ── ASK HERO ── */
+    .ask-hero { background:linear-gradient(135deg,var(--bg2),var(--bg3)); border:1px solid var(--border); border-radius:var(--r); padding:20px; margin-bottom:16px; text-align:center; }
+    .ask-hero-icon { width:56px; height:56px; background:linear-gradient(135deg,var(--blue-dim),var(--cyan-dim)); border:1px solid var(--border-hi); border-radius:16px; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; }
+    .ask-hero-icon svg { width:28px; height:28px; }
+    .ask-title { font-size:18px; font-weight:700; margin-bottom:4px; }
+    .ask-sub { font-size:13px; color:var(--txt1); line-height:1.5; }
 
     /* ── INPUT AREA ── */
-    .input-area {
-      background: var(--bg1);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 14px;
-      margin-bottom: 16px;
-    }
+    .input-area { background:var(--bg1); border:1px solid var(--border); border-radius:var(--r); padding:14px; margin-bottom:16px; }
+    .input-row { display:flex; gap:10px; align-items:flex-end; }
+    .question-input { flex:1; background:var(--bg2); border:1px solid var(--border); border-radius:10px; padding:12px 14px; color:var(--txt0); font-family:'Outfit',sans-serif; font-size:14px; resize:none; min-height:48px; max-height:120px; outline:none; transition:border-color 0.2s; }
+    .question-input:focus { border-color:var(--blue); }
+    .question-input::placeholder { color:var(--txt2); }
+    .send-btn { width:48px; height:48px; background:var(--blue); border:none; border-radius:12px; cursor:pointer; display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:opacity 0.2s,transform 0.1s; }
+    .send-btn:active { transform:scale(0.94); opacity:0.85; }
+    .send-btn svg { width:20px; height:20px; }
 
-    .input-row {
-      display: flex;
-      gap: 10px;
-      align-items: flex-end;
-    }
+    /* ── UPLOAD GRID (4 buttons) ── */
+    .upload-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px; }
+    .upload-btn { padding:10px 6px; background:var(--bg2); border:1px solid var(--border); border-radius:10px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; color:var(--txt1); font-family:'Outfit',sans-serif; font-size:11px; font-weight:500; transition:border-color 0.2s,color 0.2s,background 0.2s; }
+    .upload-btn:active { border-color:var(--blue); color:var(--blue); }
+    .upload-btn.active-tool { border-color:var(--blue); color:var(--blue); background:var(--blue-dim); }
+    .upload-btn .ub-icon { font-size:16px; }
 
-    .question-input {
-      flex: 1;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 14px;
-      color: var(--txt0);
-      font-family: 'Outfit', sans-serif;
-      font-size: 14px;
-      resize: none;
-      min-height: 48px;
-      max-height: 120px;
-      outline: none;
-      transition: border-color 0.2s;
-    }
+    /* ── VOICE + TAMIL ROW ── */
+    .input-tools { display:flex; gap:8px; margin-top:8px; }
+    .tool-btn { flex:1; padding:9px 8px; background:var(--bg2); border:1px solid var(--border); border-radius:10px; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; color:var(--txt1); font-family:'Outfit',sans-serif; font-size:12px; font-weight:500; transition:border-color 0.2s,color 0.2s; }
+    .tool-btn:active { border-color:var(--blue); color:var(--blue); }
+    .tool-btn svg { width:16px; height:16px; }
+    .tool-btn.active-tool { border-color:var(--blue); color:var(--blue); background:var(--blue-dim); }
+    .voice-listening { border-color:var(--rose) !important; color:var(--rose) !important; background:rgba(248,81,73,0.08) !important; }
 
-    .question-input:focus {
-      border-color: var(--blue);
-    }
+    /* ── FILE CHIP PREVIEW ── */
+    .file-chip { display:none; margin-top:10px; align-items:center; gap:8px; background:rgba(56,139,253,0.08); border:1px solid var(--border-hi); border-radius:20px; padding:6px 12px; width:fit-content; max-width:100%; }
+    .file-chip.show { display:flex; }
+    .file-chip-name { font-size:12px; color:var(--txt1); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:180px; }
+    .file-chip-remove { background:none; border:none; cursor:pointer; color:var(--txt2); font-size:16px; padding:0; line-height:1; flex-shrink:0; }
 
-    .question-input::placeholder {
-      color: var(--txt2);
-    }
-
-    .send-btn {
-      width: 48px;
-      height: 48px;
-      background: var(--blue);
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: opacity 0.2s, transform 0.1s;
-    }
-
-    .send-btn:active {
-      transform: scale(0.94);
-      opacity: 0.85;
-    }
-
-    .send-btn svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .input-tools {
-      display: flex;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .tool-btn {
-      flex: 1;
-      padding: 9px 8px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      color: var(--txt1);
-      font-family: 'Outfit', sans-serif;
-      font-size: 12px;
-      font-weight: 500;
-      transition: border-color 0.2s, color 0.2s;
-    }
-
-    .tool-btn:active {
-      border-color: var(--blue);
-      color: var(--blue);
-    }
-
-    .tool-btn svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .tool-btn.active-tool {
-      border-color: var(--blue);
-      color: var(--blue);
-      background: var(--blue-dim);
-    }
-
-    #img-preview {
-      margin-top: 10px;
-      display: none;
-      position: relative;
-      width: 72px;
-      height: 72px;
-    }
-
-    #img-preview img {
-      width: 72px;
-      height: 72px;
-      object-fit: cover;
-      border-radius: 10px;
-      border: 1px solid var(--border-hi);
-    }
-
-    #img-preview .remove-img {
-      position: absolute;
-      top: -6px;
-      right: -6px;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      background: var(--rose);
-      border: none;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 12px;
-    }
-
-    /* ── QUICK QUESTIONS ── */
-    .section-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      color: var(--txt2);
-      text-transform: uppercase;
-      margin-bottom: 10px;
-    }
-
-    .quick-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 20px;
-    }
-
-    .quick-card {
-      background: var(--bg1);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px;
-      cursor: pointer;
-      transition: border-color 0.2s;
-    }
-
-    .quick-card:active {
-      border-color: var(--blue);
-    }
-
-    .quick-card-icon {
-      font-size: 20px;
-      margin-bottom: 6px;
-    }
-
-    .quick-card-title {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--txt0);
-      margin-bottom: 2px;
-    }
-
-    .quick-card-sub {
-      font-size: 11px;
-      color: var(--txt1);
-      line-height: 1.4;
-    }
+    /* ── QUICK GRID ── */
+    .section-label { font-size:11px; font-weight:700; letter-spacing:0.8px; color:var(--txt2); text-transform:uppercase; margin-bottom:10px; }
+    .quick-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:20px; }
+    .quick-card { background:var(--bg1); border:1px solid var(--border); border-radius:12px; padding:12px; cursor:pointer; transition:border-color 0.2s; }
+    .quick-card:active { border-color:var(--blue); }
+    .quick-card-icon { font-size:20px; margin-bottom:6px; }
+    .quick-card-title { font-size:12px; font-weight:600; color:var(--txt0); margin-bottom:2px; }
+    .quick-card-sub { font-size:11px; color:var(--txt1); line-height:1.4; }
 
     /* ── RESPONSE ── */
-    #response-area {
-      display: none;
-      margin-bottom: 16px;
-    }
+    #response-area { display:none; margin-bottom:16px; }
+    .response-card { background:var(--bg1); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; }
+    .response-header { padding:12px 14px; border-bottom:1px solid var(--border); display:flex; align-items:center; gap:8px; }
+    .response-badge { font-size:10px; font-weight:700; letter-spacing:0.5px; padding:3px 8px; border-radius:20px; background:var(--blue-dim); color:var(--blue); border:1px solid var(--border-hi); }
+    .confidence-bar-wrap { flex:1; }
+    .confidence-label { font-size:10px; color:var(--txt1); margin-bottom:3px; }
+    .confidence-bar { height:4px; background:var(--bg3); border-radius:2px; overflow:hidden; }
+    .confidence-fill { height:100%; background:var(--green); border-radius:2px; transition:width 0.6s ease; }
+    .response-body { padding:14px; }
+    .disclaimer { margin-top:12px; padding:10px 12px; background:rgba(210,153,34,0.08); border:1px solid rgba(210,153,34,0.2); border-radius:8px; font-size:11px; color:var(--amber); line-height:1.5; }
+    .pipeline-chips { display:flex; flex-wrap:wrap; gap:6px; padding:10px 14px; border-top:1px solid var(--border); }
+    .chip { font-size:10px; font-weight:600; padding:3px 8px; border-radius:20px; background:var(--bg3); color:var(--txt1); border:1px solid var(--border); }
+    .chip.verified { background:rgba(63,185,80,0.1); color:var(--green); border-color:rgba(63,185,80,0.2); }
+    .chip.model { background:var(--blue-dim); color:var(--blue); border-color:var(--border-hi); }
 
-    .response-card {
-      background: var(--bg1);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-    }
+    /* ── VISION CARD ── */
+    .vision-card { background:linear-gradient(135deg,rgba(56,139,253,0.06),rgba(57,208,216,0.06)); border:1px solid var(--cyan); border-radius:12px; padding:14px 16px; margin-bottom:12px; box-shadow:0 0 12px rgba(57,208,216,0.08); }
+    .vision-title { font-size:10px; font-weight:700; letter-spacing:.6px; color:var(--cyan); margin-bottom:10px; display:flex; align-items:center; gap:6px; }
+    .vision-dot { width:8px; height:8px; border-radius:50%; background:var(--cyan); box-shadow:0 0 6px var(--cyan); flex-shrink:0; }
+    .vision-row { display:flex; justify-content:space-between; align-items:center; font-size:12px; padding:4px 0; border-bottom:1px solid rgba(57,208,216,0.06); }
+    .vision-row:last-child { border-bottom:none; }
+    .vision-key { color:var(--txt2); font-weight:600; }
+    .vision-val { color:var(--txt0); font-weight:500; text-align:right; }
+    .vision-val.expiry { color:var(--amber); font-weight:700; }
 
-    .response-header {
-      padding: 12px 14px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    /* ── TOOL RESULT CARD (Expired/Valid) ── */
+    .tool-card { border-radius:12px; padding:14px 16px; margin-bottom:12px; }
+    .tool-card-title { font-size:13px; font-weight:700; margin-bottom:8px; font-family:'Outfit',sans-serif; letter-spacing:.03em; }
+    .tool-card-body { font-family:'JetBrains Mono',monospace; font-size:13px; line-height:1.7; white-space:pre-wrap; }
+    .fda-table { border-collapse:collapse; width:100%; margin-top:8px; }
+    .fda-table td { padding:4px 8px 4px 0; font-size:12px; }
+    .fda-count { color:var(--amber); font-family:'JetBrains Mono',monospace; font-size:11px; text-align:right; }
 
-    .response-badge {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      padding: 3px 8px;
-      border-radius: 20px;
-      background: var(--blue-dim);
-      color: var(--blue);
-      border: 1px solid var(--border-hi);
-    }
+    /* ── LAB RESULT CARD ── */
+    .lab-card { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:12px; }
+    .lab-urgency { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; padding:4px 10px; border-radius:20px; margin-bottom:12px; }
+    .lab-table { width:100%; border-collapse:collapse; }
+    .lab-table th { font-size:10px; font-weight:700; letter-spacing:.5px; color:var(--txt2); text-transform:uppercase; padding:0 0 6px; text-align:left; }
+    .lab-table td { font-size:12px; padding:6px 0; border-bottom:1px solid var(--border); color:var(--txt1); vertical-align:top; }
+    .lab-table tr:last-child td { border-bottom:none; }
+    .lab-val { font-weight:700; }
+    .lab-val.normal { color:var(--green); }
+    .lab-val.low { color:var(--rose); }
+    .lab-val.high { color:var(--amber); }
+    .lab-reco { margin-top:12px; padding:10px 12px; background:var(--blue-dim); border-left:3px solid var(--blue); border-radius:0 8px 8px 0; font-size:13px; color:var(--txt0); line-height:1.6; }
 
-    .confidence-bar-wrap {
-      flex: 1;
-    }
+    /* ── SCAN CARD ── */
+    .scan-card { background:var(--bg2); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:12px; }
+    .scan-region { display:inline-flex; align-items:center; gap:6px; font-size:12px; font-weight:700; color:var(--cyan); background:var(--cyan-dim); border:1px solid rgba(57,208,216,0.2); padding:4px 10px; border-radius:20px; margin-bottom:12px; }
+    .scan-findings { margin:0; padding-left:16px; font-size:13px; color:var(--txt1); line-height:1.9; }
+    .scan-impression { margin-top:10px; padding:10px 12px; background:rgba(57,208,216,0.06); border:1px solid rgba(57,208,216,0.2); border-radius:8px; font-size:13px; color:var(--txt0); line-height:1.6; }
+    .scan-reco { margin-top:8px; padding:10px 12px; background:var(--blue-dim); border-left:3px solid var(--blue); border-radius:0 8px 8px 0; font-size:12px; color:var(--txt1); line-height:1.6; }
 
-    .confidence-label {
-      font-size: 10px;
-      color: var(--txt1);
-      margin-bottom: 3px;
-    }
-
-    .confidence-bar {
-      height: 4px;
-      background: var(--bg3);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .confidence-fill {
-      height: 100%;
-      background: var(--green);
-      border-radius: 2px;
-      transition: width 0.6s ease;
-    }
-
-    .response-body {
-      padding: 14px;
-    }
-
-    .final-answer {
-      font-size: 14px;
-      line-height: 1.7;
-      color: var(--txt0);
-      white-space: pre-wrap;
-    }
-
-    .disclaimer {
-      margin-top: 12px;
-      padding: 10px 12px;
-      background: rgba(210, 153, 34, 0.08);
-      border: 1px solid rgba(210, 153, 34, 0.2);
-      border-radius: 8px;
-      font-size: 11px;
-      color: var(--amber);
-      line-height: 1.5;
-    }
-
-    .pipeline-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      padding: 10px 14px;
-      border-top: 1px solid var(--border);
-    }
-
-    .chip {
-      font-size: 10px;
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: 20px;
-      background: var(--bg3);
-      color: var(--txt1);
-      border: 1px solid var(--border);
-    }
-
-    .chip.verified {
-      background: rgba(63, 185, 80, 0.1);
-      color: var(--green);
-      border-color: rgba(63, 185, 80, 0.2);
-    }
-
-    .chip.model {
-      background: var(--blue-dim);
-      color: var(--blue);
-      border-color: var(--border-hi);
-    }
+    /* ── TANGLISH SUMMARY ── */
+    .tanglish-box { background:rgba(57,208,216,0.05); border:1px solid rgba(57,208,216,0.25); border-radius:12px; padding:14px 16px; margin-top:14px; }
+    .tanglish-title { font-size:11px; font-weight:700; letter-spacing:.5px; color:var(--cyan); margin-bottom:10px; display:flex; align-items:center; gap:6px; }
+    .tanglish-text { font-size:13px; color:var(--txt0); line-height:1.9; white-space:pre-wrap; }
+    .tanglish-loading { font-size:12px; color:var(--txt2); font-style:italic; display:flex; align-items:center; gap:6px; }
 
     /* ── LOADING ── */
-    .loading-card {
-      background: var(--bg1);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 24px;
-      text-align: center;
-      display: none;
-    }
+    .loading-card { background:var(--bg1); border:1px solid var(--border); border-radius:var(--r); padding:24px; text-align:center; display:none; }
+    .loading-steps { list-style:none; text-align:left; margin-top:16px; }
+    .loading-steps li { font-size:12px; color:var(--txt1); padding:6px 0; display:flex; align-items:center; gap:8px; border-bottom:1px solid var(--border); }
+    .loading-steps li:last-child { border-bottom:none; }
+    .step-dot { width:6px; height:6px; border-radius:50%; background:var(--txt2); flex-shrink:0; }
+    .step-dot.active { background:var(--blue); box-shadow:0 0 6px var(--blue); animation:pulse-dot 1s infinite; }
+    .step-dot.done { background:var(--green); }
+    @keyframes pulse-dot { 0%,100%{box-shadow:0 0 4px var(--blue)} 50%{box-shadow:0 0 10px var(--blue)} }
+    .spinner { width:32px; height:32px; border:2px solid var(--bg3); border-top-color:var(--blue); border-radius:50%; animation:spin 0.8s linear infinite; margin:0 auto; }
+    @keyframes spin { to { transform:rotate(360deg); } }
 
-    .loading-steps {
-      list-style: none;
-      text-align: left;
-      margin-top: 16px;
-    }
+    /* ── APPOINTMENT ── */
+    .appt-header { background:linear-gradient(135deg,var(--bg2),var(--bg3)); border:1px solid var(--border); border-radius:var(--r); padding:20px; margin-bottom:16px; }
+    .doctor-card { display:flex; gap:14px; align-items:center; margin-bottom:16px; }
+    .doctor-avatar { width:56px; height:56px; border-radius:14px; background:linear-gradient(135deg,#1a4a8a,#388bfd); display:flex; align-items:center; justify-content:center; font-size:22px; flex-shrink:0; }
+    .doctor-name { font-size:16px; font-weight:700; }
+    .doctor-spec { font-size:12px; color:var(--blue); font-weight:500; }
+    .doctor-avail { font-size:11px; color:var(--green); margin-top:2px; }
+    .clinic-details { display:flex; flex-direction:column; gap:8px; }
+    .detail-row { display:flex; gap:10px; align-items:flex-start; font-size:13px; color:var(--txt1); }
+    .detail-row svg { width:16px; height:16px; flex-shrink:0; margin-top:1px; color:var(--blue); }
+    .appt-actions { display:flex; flex-direction:column; gap:10px; }
+    .action-btn { width:100%; padding:14px; border-radius:12px; border:none; font-family:'Outfit',sans-serif; font-size:14px; font-weight:600; cursor:pointer; display:flex; align-items:center; justify-content:center; gap:8px; transition:opacity 0.2s,transform 0.1s; }
+    .action-btn:active { transform:scale(0.97); opacity:0.85; }
+    .action-btn.primary { background:#25d366; color:white; }
+    .action-btn.secondary { background:var(--bg2); border:1px solid var(--border); color:var(--txt0); }
+    .timing-grid { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-bottom:16px; }
+    .timing-card { background:var(--bg1); border:1px solid var(--border); border-radius:12px; padding:12px; }
+    .timing-label { font-size:10px; color:var(--txt2); font-weight:700; letter-spacing:0.5px; text-transform:uppercase; margin-bottom:4px; }
+    .timing-value { font-size:13px; font-weight:600; color:var(--txt0); }
+    .timing-sub { font-size:11px; color:var(--txt1); }
 
-    .loading-steps li {
-      font-size: 12px;
-      color: var(--txt1);
-      padding: 6px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      border-bottom: 1px solid var(--border);
-    }
+    /* ── INFO ── */
+    .info-section { margin-bottom:20px; }
+    .info-card { background:var(--bg1); border:1px solid var(--border); border-radius:var(--r); overflow:hidden; margin-bottom:8px; }
+    .info-card-header { padding:12px 14px; display:flex; align-items:center; gap:10px; cursor:pointer; }
+    .info-card-icon { width:32px; height:32px; border-radius:8px; background:var(--blue-dim); border:1px solid var(--border-hi); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+    .info-card-icon svg { width:16px; height:16px; color:var(--blue); }
+    .info-card-title { font-size:14px; font-weight:600; flex:1; }
+    .info-card-arrow { font-size:12px; color:var(--txt2); transition:transform 0.2s; }
+    .info-card.open .info-card-arrow { transform:rotate(90deg); }
+    .info-card-body { display:none; padding:0 14px 14px; font-size:13px; color:var(--txt1); line-height:1.6; }
+    .info-card.open .info-card-body { display:block; }
 
-    .loading-steps li:last-child {
-      border-bottom: none;
-    }
-
-    .step-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--txt2);
-      flex-shrink: 0;
-    }
-
-    .step-dot.active {
-      background: var(--blue);
-      box-shadow: 0 0 6px var(--blue);
-    }
-
-    .step-dot.done {
-      background: var(--green);
-    }
-
-    .spinner {
-      width: 32px;
-      height: 32px;
-      border: 2px solid var(--bg3);
-      border-top-color: var(--blue);
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    /* ── APPOINTMENT SCREEN ── */
-    .appt-header {
-      background: linear-gradient(135deg, var(--bg2), var(--bg3));
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      padding: 20px;
-      margin-bottom: 16px;
-    }
-
-    .doctor-card {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      margin-bottom: 16px;
-    }
-
-    .doctor-avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 14px;
-      background: linear-gradient(135deg, #1a4a8a, #388bfd);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      flex-shrink: 0;
-    }
-
-    .doctor-name {
-      font-size: 16px;
-      font-weight: 700;
-    }
-
-    .doctor-spec {
-      font-size: 12px;
-      color: var(--blue);
-      font-weight: 500;
-    }
-
-    .doctor-avail {
-      font-size: 11px;
-      color: var(--green);
-      margin-top: 2px;
-    }
-
-    .clinic-details {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .detail-row {
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      font-size: 13px;
-      color: var(--txt1);
-    }
-
-    .detail-row svg {
-      width: 16px;
-      height: 16px;
-      flex-shrink: 0;
-      margin-top: 1px;
-      color: var(--blue);
-    }
-
-    .appt-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .action-btn {
-      width: 100%;
-      padding: 14px;
-      border-radius: 12px;
-      border: none;
-      font-family: 'Outfit', sans-serif;
-      font-size: 14px;
-      font-weight: 600;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: opacity 0.2s, transform 0.1s;
-    }
-
-    .action-btn:active {
-      transform: scale(0.97);
-      opacity: 0.85;
-    }
-
-    .action-btn.primary {
-      background: #25d366;
-      color: white;
-    }
-
-    .action-btn.secondary {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      color: var(--txt0);
-    }
-
-    .timing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .timing-card {
-      background: var(--bg1);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 12px;
-    }
-
-    .timing-label {
-      font-size: 10px;
-      color: var(--txt2);
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      margin-bottom: 4px;
-    }
-
-    .timing-value {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--txt0);
-    }
-
-    .timing-sub {
-      font-size: 11px;
-      color: var(--txt1);
-    }
-
-    /* ── INFO SCREEN ── */
-    .info-section {
-      margin-bottom: 20px;
-    }
-
-    .info-card {
-      background: var(--bg1);
-      border: 1px solid var(--border);
-      border-radius: var(--r);
-      overflow: hidden;
-      margin-bottom: 8px;
-    }
-
-    .info-card-header {
-      padding: 12px 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-    }
-
-    .info-card-icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--blue-dim);
-      border: 1px solid var(--border-hi);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .info-card-icon svg {
-      width: 16px;
-      height: 16px;
-      color: var(--blue);
-    }
-
-    .info-card-title {
-      font-size: 14px;
-      font-weight: 600;
-      flex: 1;
-    }
-
-    .info-card-arrow {
-      font-size: 12px;
-      color: var(--txt2);
-      transition: transform 0.2s;
-    }
-
-    .info-card.open .info-card-arrow {
-      transform: rotate(90deg);
-    }
-
-    .info-card-body {
-      display: none;
-      padding: 0 14px 14px;
-      font-size: 13px;
-      color: var(--txt1);
-      line-height: 1.6;
-    }
-
-    .info-card.open .info-card-body {
-      display: block;
-    }
-
-    /* ── TAMIL FONT ── */
-    .tamil {
-      font-family: 'Noto Sans Tamil', sans-serif;
-    }
-
-    /* ── INSTALL BANNER ── */
-    #install-banner {
-      display: none;
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      padding: 10px 16px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    #install-banner.hidden {
-      display: none !important;
-    }
-
-    .install-text {
-      flex: 1;
-      font-size: 12px;
-      color: var(--txt1);
-    }
-
-    .install-text strong {
-      color: var(--txt0);
-      display: block;
-      font-size: 13px;
-    }
-
-    .install-btn {
-      background: var(--blue);
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 8px 14px;
-      font-family: 'Outfit', sans-serif;
-      font-size: 12px;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .dismiss-btn {
-      background: none;
-      border: none;
-      color: var(--txt2);
-      font-size: 18px;
-      cursor: pointer;
-      padding: 4px;
-    }
-
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar {
-      width: 4px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--bg4);
-      border-radius: 2px;
-    }
-
-    /* ── STRUCTURED RESPONSE SECTIONS ── */
-    .sr-section {
-      margin-top: 12px;
-      padding: 10px 12px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-    }
-    .sr-dosage {
-      border-color: var(--border-hi);
-      background: var(--blue-dim);
-    }
-    .sr-warn {
-      background: rgba(210,153,34,0.08);
-      border-color: rgba(210,153,34,0.2);
-    }
-    .sr-warn .sr-label { color: var(--amber); }
-    .sr-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.8px;
-      color: var(--txt2);
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .sr-dosage .sr-label { color: var(--blue); }
-    .sr-text {
-      font-size: 13px;
-      color: var(--txt0);
-      line-height: 1.6;
-    }
-    .sr-list {
-      margin: 0;
-      padding-left: 16px;
-      font-size: 13px;
-      color: var(--txt1);
-      line-height: 1.7;
-    }
+    /* ── MISC ── */
+    .tamil { font-family:'Noto Sans Tamil',sans-serif; }
+    #install-banner { display:none; background:var(--bg2); border-top:1px solid var(--border); padding:10px 16px; display:flex; align-items:center; gap:10px; }
+    #install-banner.hidden { display:none !important; }
+    .install-text { flex:1; font-size:12px; color:var(--txt1); }
+    .install-text strong { color:var(--txt0); display:block; font-size:13px; }
+    .install-btn { background:var(--blue); color:white; border:none; border-radius:8px; padding:8px 14px; font-family:'Outfit',sans-serif; font-size:12px; font-weight:600; cursor:pointer; }
+    .dismiss-btn { background:none; border:none; color:var(--txt2); font-size:18px; cursor:pointer; padding:4px; }
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:transparent; }
+    ::-webkit-scrollbar-thumb { background:var(--bg4); border-radius:2px; }
   </style>
 </head>
-
 <body>
 
-  <!-- TOP BAR -->
-  <div class="topbar">
-    <div class="clinic-logo">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-        <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
-      </svg>
-    </div>
-    <div class="clinic-info">
-      <div class="clinic-name">Anbu Clinic MedAssist</div>
-      <div class="clinic-doctor">Dr. Rajeswari M.D</div>
-    </div>
-    <button class="lang-toggle" onclick="toggleLang()">
-      <span id="lang-en" class="active">EN</span>
-      <span style="color:var(--txt2)">|</span>
-      <span id="lang-ta">தமிழ்</span>
-    </button>
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="clinic-logo">
+    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+      <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+    </svg>
   </div>
-
-  <!-- TABS -->
-  <div class="tabs">
-    <button class="tab active" onclick="showTab('ask', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3" />
-        <circle cx="12" cy="17" r=".5" fill="currentColor" />
-      </svg>
-      <span id="tab-ask-label">Ask AI</span>
-    </button>
-    <button class="tab" onclick="showTab('appt', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <rect x="3" y="4" width="18" height="18" rx="2" />
-        <line x1="16" y1="2" x2="16" y2="6" />
-        <line x1="8" y1="2" x2="8" y2="6" />
-        <line x1="3" y1="10" x2="21" y2="10" />
-      </svg>
-      <span id="tab-appt-label">Appointment</span>
-    </button>
-    <button class="tab" onclick="showTab('info', this)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <circle cx="12" cy="12" r="10" />
-        <line x1="12" y1="8" x2="12" y2="12" />
-        <line x1="12" y1="16" x2="12.01" y2="16" />
-      </svg>
-      <span id="tab-info-label">Info</span>
-    </button>
+  <div class="clinic-info">
+    <div class="clinic-name">RRR Village Clinic MedAssist</div>
+    <div class="clinic-doctor">Dr. Rajeswari M.D</div>
   </div>
+  <button class="lang-toggle" onclick="toggleLang()">
+    <span id="lang-en" class="active">EN</span>
+    <span style="color:var(--txt2)">|</span>
+    <span id="lang-ta">தமிழ்</span>
+  </button>
+</div>
 
-  <!-- CONTENT -->
-  <div class="content">
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab active" onclick="showTab('ask',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3"/><circle cx="12" cy="17" r=".5" fill="currentColor"/></svg>
+    <span id="tab-ask-label">Ask AI</span>
+  </button>
+  <button class="tab" onclick="showTab('appt',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+    <span id="tab-appt-label">Appointment</span>
+  </button>
+  <button class="tab" onclick="showTab('info',this)">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    <span id="tab-info-label">Info</span>
+  </button>
+</div>
 
-    <!-- ASK SCREEN -->
-    <div id="screen-ask" class="screen active">
-      <div class="ask-hero">
-        <div class="ask-hero-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5">
-            <path d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-5 0V9a2.5 2.5 0 012.5-2.5" />
-            <path d="M14.5 2A2.5 2.5 0 0112 4.5" />
-            <path d="M14.5 2A2.5 2.5 0 0117 4.5V9a2.5 2.5 0 01-2.5 2.5" />
-            <circle cx="12" cy="19.5" r="1" fill="var(--blue)" />
-          </svg>
-        </div>
-        <div class="ask-title" id="hero-title">Ask about medicines</div>
-        <div class="ask-sub" id="hero-sub">Dosage · Side effects · Drug interactions · Expiry check</div>
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- ASK SCREEN -->
+  <div id="screen-ask" class="screen active">
+
+    <div class="ask-hero">
+      <div class="ask-hero-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="1.5">
+          <path d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-5 0V9a2.5 2.5 0 012.5-2.5"/>
+          <path d="M14.5 2A2.5 2.5 0 0112 4.5"/><path d="M14.5 2A2.5 2.5 0 0117 4.5V9a2.5 2.5 0 01-2.5 2.5"/>
+          <circle cx="12" cy="19.5" r="1" fill="var(--blue)"/>
+        </svg>
+      </div>
+      <div class="ask-title" id="hero-title">Ask about medicines</div>
+      <div class="ask-sub" id="hero-sub">Medicine · Lab Reports · X-Ray · Dosage · Side effects</div>
+    </div>
+
+    <!-- INPUT -->
+    <div class="input-area">
+      <div class="input-row">
+        <textarea class="question-input" id="question-input" placeholder="Type your question..." rows="1" oninput="autoResize(this)"></textarea>
+        <button class="send-btn" onclick="submitQuestion()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
       </div>
 
-      <!-- INPUT -->
-      <div class="input-area">
-        <div class="input-row">
-          <textarea class="question-input" id="question-input" placeholder="Type your question..." rows="1"
-            oninput="autoResize(this)"></textarea>
-          <button class="send-btn" onclick="submitQuestion()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-              <line x1="22" y1="2" x2="11" y2="13" />
-              <polygon points="22 2 15 22 11 13 2 9 22 2" />
-            </svg>
-          </button>
-        </div>
-        <div class="input-tools">
-          <button class="tool-btn" id="img-btn" onclick="document.getElementById('img-input').click()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <circle cx="8.5" cy="8.5" r="1.5" />
-              <polyline points="21 15 16 10 5 21" />
-            </svg>
-            <span id="img-btn-label">Medicine photo</span>
-          </button>
-          <button class="tool-btn" id="voice-btn" onclick="toggleVoice()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-              <line x1="12" y1="19" x2="12" y2="23"/>
-              <line x1="8" y1="23" x2="16" y2="23"/>
-            </svg>
-            <span id="voice-btn-label">🎤 பேசுங்கள்</span>
-          </button>
-          <button class="tool-btn" onclick="toggleTamilInput()">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M5 8l6 6" /><path d="M4 14l6-6 2-3" />
-              <path d="M2 5h12" /><path d="M7 2h1" />
-              <path d="M22 22l-5-10-5 10" /><path d="M14 18h6" />
-            </svg>
-            <span id="tamil-btn-label">தமிழில் கேள்</span>
-          </button>
-        </div>
-        <input type="file" id="img-input" accept="image/*" capture="environment" style="display:none"
-          onchange="handleImage(event)" />
-        <div id="img-preview">
-          <img id="preview-img" src="" alt="Medicine" />
-          <button class="remove-img" onclick="removeImage()">×</button>
-        </div>
+      <!-- 4 UPLOAD BUTTONS -->
+      <div class="upload-grid">
+        <button class="upload-btn" id="btn-medicine" onclick="triggerUpload('medicine')">
+          <span class="ub-icon">💊</span>
+          <span id="label-medicine">Medicine Strip</span>
+        </button>
+        <button class="upload-btn" id="btn-tablet" onclick="triggerUpload('tablet')">
+          <span class="ub-icon">🔬</span>
+          <span id="label-tablet">Tablet / Pill</span>
+        </button>
+        <button class="upload-btn" id="btn-lab" onclick="triggerUpload('lab')">
+          <span class="ub-icon">🧪</span>
+          <span id="label-lab">Lab Report</span>
+        </button>
+        <button class="upload-btn" id="btn-scan" onclick="triggerUpload('scan')">
+          <span class="ub-icon">🩻</span>
+          <span id="label-scan">X-Ray / Scan</span>
+        </button>
       </div>
 
-      <!-- LOADING -->
-      <div class="loading-card" id="loading-card">
-        <div class="spinner"></div>
-        <div style="margin-top:12px; font-size:13px; color:var(--txt1)" id="loading-text">Analysing your question...
-        </div>
-        <ul class="loading-steps" id="loading-steps">
-          <li>
-            <div class="step-dot" id="step-0"></div> <span id="step-0-label">Manas — Understanding question</span>
-          </li>
-          <li>
-            <div class="step-dot" id="step-1"></div> <span id="step-1-label">Chitta — Searching drug database</span>
-          </li>
-          <li>
-            <div class="step-dot" id="step-2"></div> <span id="step-2-label">Buddhi — AI reasoning</span>
-          </li>
-          <li>
-            <div class="step-dot" id="step-3"></div> <span id="step-3-label">Sakshi — Verifying answer</span>
-          </li>
-        </ul>
+      <!-- hidden file inputs -->
+      <input type="file" id="input-medicine" accept="image/*" capture="environment" style="display:none" onchange="handleFile(event,'medicine')"/>
+      <input type="file" id="input-tablet"   accept="image/*" capture="environment" style="display:none" onchange="handleFile(event,'tablet')"/>
+      <input type="file" id="input-lab"      accept="image/*,application/pdf"      style="display:none" onchange="handleFile(event,'lab')"/>
+      <input type="file" id="input-scan"     accept="image/*" capture="environment" style="display:none" onchange="handleFile(event,'scan')"/>
+
+      <!-- file chip -->
+      <div class="file-chip" id="file-chip">
+        <span id="file-chip-icon">💊</span>
+        <span class="file-chip-name" id="file-chip-name"></span>
+        <button class="file-chip-remove" onclick="removeFile()">×</button>
       </div>
 
-      <!-- RESPONSE -->
-      <div id="response-area">
-        <div class="response-card">
-          <div class="response-header">
-            <div class="response-badge">ANTAHKARANA AI</div>
-            <div class="confidence-bar-wrap">
-              <div class="confidence-label" id="conf-label">Confidence: --</div>
-              <div class="confidence-bar">
-                <div class="confidence-fill" id="conf-fill" style="width:0%"></div>
-              </div>
+      <!-- Voice + Tamil row -->
+      <div class="input-tools">
+        <button class="tool-btn" id="voice-btn" onclick="toggleVoice()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          <span id="voice-btn-label">🎤 பேசுங்கள்</span>
+        </button>
+        <button class="tool-btn" onclick="toggleTamilInput()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
+          <span id="tamil-btn-label">தமிழில் கேள்</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- LOADING -->
+    <div class="loading-card" id="loading-card">
+      <div class="spinner"></div>
+      <div style="margin-top:12px;font-size:13px;color:var(--txt1)" id="loading-text">Analysing...</div>
+      <ul class="loading-steps" id="loading-steps">
+        <li><div class="step-dot" id="step-0"></div><span id="step-0-label">Manas — Understanding question</span></li>
+        <li><div class="step-dot" id="step-1"></div><span id="step-1-label">Chitta — Searching drug database</span></li>
+        <li><div class="step-dot" id="step-2"></div><span id="step-2-label">Buddhi — AI reasoning</span></li>
+        <li><div class="step-dot" id="step-3"></div><span id="step-3-label">Sakshi — Verifying answer</span></li>
+      </ul>
+    </div>
+
+    <!-- RESPONSE -->
+    <div id="response-area">
+      <div class="response-card">
+        <div class="response-header">
+          <div class="response-badge">ANTAHKARANA AI</div>
+          <div class="confidence-bar-wrap">
+            <div class="confidence-label" id="conf-label">Confidence: --</div>
+            <div class="confidence-bar"><div class="confidence-fill" id="conf-fill" style="width:0%"></div></div>
+          </div>
+        </div>
+        <div class="response-body">
+          <!-- Vision card injected here -->
+          <div id="vision-card-area"></div>
+          <!-- Tool result (expired/valid) injected here -->
+          <div id="tool-card-area"></div>
+          <!-- Lab / Scan structured card injected here -->
+          <div id="struct-card-area"></div>
+          <!-- Main answer -->
+          <div id="final-answer" style="font-size:14px;line-height:1.75;color:var(--txt0);"></div>
+          <!-- Tanglish summary -->
+          <div class="tanglish-box" id="tanglish-box" style="display:none">
+            <div class="tanglish-title">
+              <span>🗣️</span>
+              <span id="tanglish-title-text">RRR Clinic Summary (Tanglish)</span>
             </div>
+            <div class="tanglish-text" id="tanglish-text"></div>
           </div>
-          <div class="response-body">
-            <div class="final-answer" id="final-answer"></div>
-            <div id="structured-response" style="display:none; margin-top:14px;"></div>
-            <div class="disclaimer" id="disclaimer"></div>
-          </div>
-          <div class="pipeline-chips" id="pipeline-chips"></div>
-          <div id="audio-player-area" style="display:none;padding:10px 14px;border-top:1px solid var(--border)">
-            <button onclick="speakResponse()" style="background:rgba(57,208,216,0.1);border:1px solid rgba(57,208,216,0.3);border-radius:8px;padding:8px 14px;color:var(--cyan);font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:Outfit,sans-serif">
-              🔊 <span id="speak-btn-text">கேளுங்கள் (Listen)</span>
-            </button>
-          </div>
+          <!-- Disclaimer -->
+          <div class="disclaimer" id="disclaimer" style="display:none"></div>
         </div>
-      </div>
-
-      <!-- QUICK QUESTIONS -->
-      <div id="quick-section">
-        <div class="section-label" id="quick-label">Quick questions</div>
-        <div class="quick-grid">
-          <div class="quick-card" onclick="askQuick('What is the dosage of Paracetamol 500mg for adults?')">
-            <div class="quick-card-icon">💊</div>
-            <div class="quick-card-title" id="qc1-title">Dosage check</div>
-            <div class="quick-card-sub" id="qc1-sub">Paracetamol, Ibuprofen, Cetirizine</div>
-          </div>
-          <div class="quick-card" onclick="askQuick('What are the side effects of Amoxicillin?')">
-            <div class="quick-card-icon">⚠️</div>
-            <div class="quick-card-title" id="qc2-title">Side effects</div>
-            <div class="quick-card-sub" id="qc2-sub">Antibiotics, common drugs</div>
-          </div>
-          <div class="quick-card" onclick="askQuick('Can I take Ibuprofen and Paracetamol together?')">
-            <div class="quick-card-icon">🔄</div>
-            <div class="quick-card-title" id="qc3-title">Drug interaction</div>
-            <div class="quick-card-sub" id="qc3-sub">Is it safe to combine?</div>
-          </div>
-          <div class="quick-card" onclick="showTab('appt', document.querySelectorAll('.tab')[1])">
-            <div class="quick-card-icon">📅</div>
-            <div class="quick-card-title" id="qc4-title">Book appointment</div>
-            <div class="quick-card-sub" id="qc4-sub">Visit Dr. Rajeswari</div>
-          </div>
+        <div class="pipeline-chips" id="pipeline-chips"></div>
+        <div id="audio-player-area" style="display:none;padding:10px 14px;border-top:1px solid var(--border)">
+          <button onclick="speakResponse()" style="background:rgba(57,208,216,0.1);border:1px solid rgba(57,208,216,0.3);border-radius:8px;padding:8px 14px;color:var(--cyan);font-size:12px;font-weight:600;cursor:pointer;display:flex;align-items:center;gap:6px;font-family:Outfit,sans-serif">
+            🔊 <span id="speak-btn-text">கேளுங்கள் (Listen)</span>
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- APPOINTMENT SCREEN -->
-    <div id="screen-appt" class="screen">
-      <div class="appt-header">
-        <div class="doctor-card">
-          <div class="doctor-avatar">👩‍⚕️</div>
-          <div>
-            <div class="doctor-name">Dr. Rajeswari</div>
-            <div class="doctor-spec">M.D — General Medicine</div>
-            <div class="doctor-avail" id="avail-text">● Available today</div>
-          </div>
+    <!-- QUICK QUESTIONS -->
+    <div id="quick-section">
+      <div class="section-label" id="quick-label">Quick actions</div>
+      <div class="quick-grid">
+        <div class="quick-card" onclick="askQuick('What is the dosage of Paracetamol 500mg for adults?')">
+          <div class="quick-card-icon">💊</div>
+          <div class="quick-card-title" id="qc1-title">Dosage check</div>
+          <div class="quick-card-sub" id="qc1-sub">Paracetamol, Ibuprofen</div>
         </div>
-        <div class="clinic-details">
-          <div class="detail-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            <span id="clinic-addr">Anbu Clinic, Tamil Nadu</span>
-          </div>
-          <div class="detail-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path
-                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.7A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z" />
-            </svg>
-            <span id="clinic-phone">Call clinic for appointment</span>
-          </div>
+        <div class="quick-card" onclick="askQuick('What are the side effects of Amoxicillin?')">
+          <div class="quick-card-icon">⚠️</div>
+          <div class="quick-card-title" id="qc2-title">Side effects</div>
+          <div class="quick-card-sub" id="qc2-sub">Antibiotics, common drugs</div>
         </div>
-      </div>
-
-      <div class="section-label" id="timing-label">Consultation timings</div>
-      <div class="timing-grid">
-        <div class="timing-card">
-          <div class="timing-label" id="morning-label">Morning</div>
-          <div class="timing-value">9:00 AM</div>
-          <div class="timing-sub">to 1:00 PM</div>
+        <div class="quick-card" onclick="askQuick('Can I take Ibuprofen and Paracetamol together?')">
+          <div class="quick-card-icon">🔄</div>
+          <div class="quick-card-title" id="qc3-title">Drug interaction</div>
+          <div class="quick-card-sub" id="qc3-sub">Is it safe to combine?</div>
         </div>
-        <div class="timing-card">
-          <div class="timing-label" id="evening-label">Evening</div>
-          <div class="timing-value">5:00 PM</div>
-          <div class="timing-sub">to 8:00 PM</div>
+        <div class="quick-card" onclick="showTab('appt',document.querySelectorAll('.tab')[1])">
+          <div class="quick-card-icon">📅</div>
+          <div class="quick-card-title" id="qc4-title">Book appointment</div>
+          <div class="quick-card-sub" id="qc4-sub">Visit Dr. Rajeswari</div>
         </div>
-        <div class="timing-card">
-          <div class="timing-label">Mon – Sat</div>
-          <div class="timing-value" style="font-size:12px">Open</div>
-          <div class="timing-sub" id="closed-label">Sunday closed</div>
+        <div class="quick-card" onclick="triggerUpload('lab')">
+          <div class="quick-card-icon">🧪</div>
+          <div class="quick-card-title" id="qc5-title">Upload Lab Report</div>
+          <div class="quick-card-sub" id="qc5-sub">Blood test, urine test results</div>
         </div>
-        <div class="timing-card">
-          <div class="timing-label">Emergency</div>
-          <div class="timing-value" style="font-size:12px; color:var(--rose)">Call first</div>
-          <div class="timing-sub">Available</div>
+        <div class="quick-card" onclick="triggerUpload('scan')">
+          <div class="quick-card-icon">🩻</div>
+          <div class="quick-card-title" id="qc6-title">Upload X-Ray</div>
+          <div class="quick-card-sub" id="qc6-sub">Chest, bone, scan images</div>
         </div>
-      </div>
-
-      <div class="appt-actions">
-        <button class="action-btn primary" onclick="bookWhatsApp()">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="white">
-            <path
-              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
-          </svg>
-          <span id="wa-btn-label">Book via WhatsApp</span>
-        </button>
-        <button class="action-btn secondary" onclick="callClinic()">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.7A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z" />
-          </svg>
-          <span id="call-btn-label">Call Clinic</span>
-        </button>
       </div>
     </div>
-
-    <!-- INFO SCREEN -->
-    <div id="screen-info" class="screen">
-      <div class="section-label" id="info-label">About this app</div>
-
-      <div class="info-section">
-        <div class="info-card" onclick="toggleInfo(this)">
-          <div class="info-card-header">
-            <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-5 0" />
-                <path d="M14.5 2A2.5 2.5 0 0117 4.5V9" />
-              </svg></div>
-            <span class="info-card-title" id="ai-title">How the AI works</span>
-            <span class="info-card-arrow">›</span>
-          </div>
-          <div class="info-card-body" id="ai-body">
-            The Antahkarana AI engine processes your question through 7 stages inspired by Vedantic cognitive
-            architecture — Manas (understanding), Chitta (memory retrieval), Buddhi (reasoning), Ahamkara (confidence
-            scoring), and Sakshi (verification). Built by Rajaganapathy M, AI Engineer, SRM University.
-          </div>
-        </div>
-
-        <div class="info-card" onclick="toggleInfo(this)">
-          <div class="info-card-header">
-            <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg></div>
-            <span class="info-card-title" id="safe-title">Safety & Disclaimer</span>
-            <span class="info-card-arrow">›</span>
-          </div>
-          <div class="info-card-body" id="safe-body">
-            This AI assistant provides general medical information only. Always consult Dr. Rajeswari or a qualified
-            medical professional before taking any medication. Do not rely solely on AI for medical decisions.
-          </div>
-        </div>
-
-        <div class="info-card" onclick="toggleInfo(this)">
-          <div class="info-card-header">
-            <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="2" y="3" width="20" height="14" rx="2" />
-                <line x1="8" y1="21" x2="16" y2="21" />
-                <line x1="12" y1="17" x2="12" y2="21" />
-              </svg></div>
-            <span class="info-card-title" id="tech-title">Technology</span>
-            <span class="info-card-arrow">›</span>
-          </div>
-          <div class="info-card-body" id="tech-body">
-            Backend: FastAPI + Python · LLM: Groq llama3-70b · Vision: GPT-4o · Vector DB: ChromaDB · Deployment: Azure
-            Container Apps · Built with MLOps pipeline: Docker + GitHub Actions CI/CD
-          </div>
-        </div>
-
-        <div class="info-card" onclick="toggleInfo(this)">
-          <div class="info-card-header">
-            <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <circle cx="12" cy="8" r="4" />
-                <path d="M6 20v-2a6 6 0 0112 0v2" />
-              </svg></div>
-            <span class="info-card-title" id="dev-title">Developer</span>
-            <span class="info-card-arrow">›</span>
-          </div>
-          <div class="info-card-body" id="dev-body">
-            Built by Rajaganapathy M — AI/ML Engineer · M.Tech AI, SRM University (CGPA 9.6) · Indian Patent Filed (App
-            No. 202641043947) · IEEE Paper Submitted · rajaganaa.github.io
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align:center; padding: 16px 0; font-size: 11px; color: var(--txt2);">
-        Anbu Clinic MedAssist v1.0 · Powered by Antahkarana AI<br />
-        © 2026 Dr. Rajeswari M.D · Built by Rajaganapathy M
-      </div>
-    </div>
-
   </div>
 
-  <!-- INSTALL BANNER -->
-  <div id="install-banner" class="hidden">
-    <div class="install-text">
-      <strong id="install-title">Install Anbu Clinic App</strong>
-      <span id="install-sub">Add to home screen — works offline</span>
+  <!-- APPOINTMENT SCREEN -->
+  <div id="screen-appt" class="screen">
+    <div class="appt-header">
+      <div class="doctor-card">
+        <div class="doctor-avatar">👩‍⚕️</div>
+        <div>
+          <div class="doctor-name">Dr. Rajeswari</div>
+          <div class="doctor-spec">M.D — General Medicine</div>
+          <div class="doctor-avail" id="avail-text">● Available today</div>
+        </div>
+      </div>
+      <div class="clinic-details">
+        <div class="detail-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span id="clinic-addr">RRR Village Clinic, Tamil Nadu</span>
+        </div>
+        <div class="detail-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.7A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+          <span id="clinic-phone">+91 9176634174</span>
+        </div>
+      </div>
     </div>
-    <button class="install-btn" id="install-btn" onclick="installPWA()">Install</button>
-    <button class="dismiss-btn" onclick="dismissInstall()">×</button>
+    <div class="section-label" id="timing-label">Consultation timings</div>
+    <div class="timing-grid">
+      <div class="timing-card"><div class="timing-label" id="morning-label">Morning</div><div class="timing-value">9:00 AM</div><div class="timing-sub">to 1:00 PM</div></div>
+      <div class="timing-card"><div class="timing-label" id="evening-label">Evening</div><div class="timing-value">5:00 PM</div><div class="timing-sub">to 8:00 PM</div></div>
+      <div class="timing-card"><div class="timing-label">Mon – Sat</div><div class="timing-value" style="font-size:12px">Open</div><div class="timing-sub" id="closed-label">Sunday closed</div></div>
+      <div class="timing-card"><div class="timing-label">Emergency</div><div class="timing-value" style="font-size:12px;color:var(--rose)">Call first</div><div class="timing-sub">Available</div></div>
+    </div>
+    <div class="appt-actions">
+      <button class="action-btn primary" onclick="bookWhatsApp()">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span id="wa-btn-label">Book via WhatsApp</span>
+      </button>
+      <button class="action-btn secondary" onclick="callClinic()">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8a19.79 19.79 0 01-3.07-8.7A2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92v2z"/></svg>
+        <span id="call-btn-label">Call Clinic</span>
+      </button>
+    </div>
   </div>
 
-  <script>
-    // ── CONFIG — update these ──────────────────────────────────────────────────
-    const API_URL = "https://rrr-clinic-api.kindrock-2ca528ff.centralindia.azurecontainerapps.io"
-    const CLINIC_PHONE = '+919176634174'; // Dr. Rajeswari's number
-    const WHATSAPP_NUM = '919176634174';  // without +
-    // ──────────────────────────────────────────────────────────────────────────
+  <!-- INFO SCREEN -->
+  <div id="screen-info" class="screen">
+    <div class="section-label" id="info-label">About this app</div>
+    <div class="info-section">
+      <div class="info-card" onclick="toggleInfo(this)">
+        <div class="info-card-header">
+          <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9.5 2A2.5 2.5 0 0112 4.5v15a2.5 2.5 0 01-5 0"/><path d="M14.5 2A2.5 2.5 0 0117 4.5V9"/></svg></div>
+          <span class="info-card-title" id="ai-title">How the AI works</span>
+          <span class="info-card-arrow">›</span>
+        </div>
+        <div class="info-card-body">The Antahkarana AI engine processes your question through 4 stages — Manas (understanding), Chitta (memory retrieval), Buddhi (reasoning), and Sakshi (verification). Vision AI reads medicine strips, lab reports, and X-rays. A Tanglish summary is generated for every response so village patients can understand easily.</div>
+      </div>
+      <div class="info-card" onclick="toggleInfo(this)">
+        <div class="info-card-header">
+          <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <span class="info-card-title" id="safe-title">Safety & Disclaimer</span>
+          <span class="info-card-arrow">›</span>
+        </div>
+        <div class="info-card-body">This AI assistant provides general medical information only. Always consult Dr. Rajeswari or a qualified medical professional before taking any medication. Do not rely solely on AI for medical decisions.</div>
+      </div>
+      <div class="info-card" onclick="toggleInfo(this)">
+        <div class="info-card-header">
+          <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <span class="info-card-title" id="tech-title">Technology</span>
+          <span class="info-card-arrow">›</span>
+        </div>
+        <div class="info-card-body">Frontend: Vanilla HTML/CSS/JS PWA. Backend: Python FastAPI on Azure. AI: GPT-4o Vision + Claude Sonnet for Tanglish summaries. Voice: Web Speech API (Tamil + English). Storage: ChromaDB vector store.</div>
+      </div>
+      <div class="info-card" onclick="toggleInfo(this)">
+        <div class="info-card-header">
+          <div class="info-card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          <span class="info-card-title" id="dev-title">Developer</span>
+          <span class="info-card-arrow">›</span>
+        </div>
+        <div class="info-card-body" id="dev-body">Built by Rajaganapathy M — AI/ML Engineer · M.Tech AI, SRM University (CGPA 9.6) · Indian Patent Filed (App No. 202641043947) · IEEE Paper Submitted · rajaganaa.github.io</div>
+      </div>
+    </div>
+    <div style="text-align:center;padding:16px 0;font-size:11px;color:var(--txt2)">
+      RRR Village Clinic MedAssist v2.0 · Powered by Antahkarana AI<br/>
+      © 2026 Dr. Rajeswari M.D · Built by Rajaganapathy M
+    </div>
+  </div>
 
-    let currentLang = 'en';
-    let selectedImage = null;
-    let deferredPrompt = null;
+</div>
 
-    const translations = {
-      en: {
-        heroTitle: 'Ask about medicines',
-        heroSub: 'Dosage · Side effects · Drug interactions · Expiry check',
-        tabAsk: 'Ask AI', tabAppt: 'Appointment', tabInfo: 'Info',
-        quickLabel: 'Quick questions',
-        qc1Title: 'Dosage check', qc1Sub: 'Paracetamol, Ibuprofen, Cetirizine',
-        qc2Title: 'Side effects', qc2Sub: 'Antibiotics, common drugs',
-        qc3Title: 'Drug interaction', qc3Sub: 'Is it safe to combine?',
-        qc4Title: 'Book appointment', qc4Sub: 'Visit Dr. Rajeswari',
-        imgBtn: 'Medicine photo', tamilBtn: 'தமிழில் கேள்',
-        placeholder: 'Type your question...',
-        loadingText: 'Analysing your question...',
-        steps: ['Manas — Understanding question', 'Chitta — Searching drug database', 'Buddhi — AI reasoning', 'Sakshi — Verifying answer'],
-        availText: '● Available today',
-        timingLabel: 'Consultation timings', morningLabel: 'Morning', eveningLabel: 'Evening', closedLabel: 'Sunday closed',
-        waBtn: 'Book via WhatsApp', callBtn: 'Call Clinic',
-        infoLabel: 'About this app',
-        aiTitle: 'How the AI works', safeTitle: 'Safety & Disclaimer',
-        techTitle: 'Technology', devTitle: 'Developer',
-        installTitle: 'Install Anbu Clinic App', installSub: 'Add to home screen — works offline',
-        disclaimer: '⚠ Medical disclaimer: This is AI-generated information only. Please consult Dr. Rajeswari before taking any medication.',
-      },
-      ta: {
-        heroTitle: 'மருந்துகளைப் பற்றி கேளுங்கள்',
-        heroSub: 'அளவு · பக்க விளைவுகள் · மருந்து இடைவினைகள் · காலாவதி சோதனை',
-        tabAsk: 'AI கேள்', tabAppt: 'சந்திப்பு', tabInfo: 'தகவல்',
-        quickLabel: 'விரைவு கேள்விகள்',
-        qc1Title: 'அளவு சோதனை', qc1Sub: 'பாராசிட்டமால், இப்யூபுரோஃபன்',
-        qc2Title: 'பக்க விளைவுகள்', qc2Sub: 'நுண்ணுயிர் எதிர்ப்பிகள்',
-        qc3Title: 'மருந்து இடைவினை', qc3Sub: 'சேர்த்து எடுக்கலாமா?',
-        qc4Title: 'சந்திப்பு பதிவு', qc4Sub: 'டாக்டர் ராஜேஸ்வரியை சந்திக்கவும்',
-        imgBtn: 'மருந்து புகைப்படம்', tamilBtn: 'Type in English',
-        placeholder: 'உங்கள் கேள்வியை தட்டச்சு செய்யுங்கள்...',
-        loadingText: 'உங்கள் கேள்வியை பகுப்பாய்கிறது...',
-        steps: ['மனஸ் — கேள்வியை புரிந்துகொள்கிறது', 'சித்தா — தரவுத்தளம் தேடுகிறது', 'புத்தி — AI சிந்திக்கிறது', 'சாட்சி — பதிலை சரிபார்க்கிறது'],
-        availText: '● இன்று கிடைக்கிறார்',
-        timingLabel: 'ஆலோசனை நேரங்கள்', morningLabel: 'காலை', eveningLabel: 'மாலை', closedLabel: 'ஞாயிற்றுக்கிழமை மூடல்',
-        waBtn: 'WhatsApp மூலம் பதிவு செய்யுங்கள்', callBtn: 'கிளினிக்கை அழைக்கவும்',
-        infoLabel: 'இந்த செயலியைப் பற்றி',
-        aiTitle: 'AI எப்படி வேலை செய்கிறது', safeTitle: 'பாதுகாப்பு & மறுப்பு',
-        techTitle: 'தொழில்நுட்பம்', devTitle: 'டெவலப்பர்',
-        installTitle: 'அன்பு கிளினிக் செயலியை நிறுவுங்கள்', installSub: 'முகப்பு திரையில் சேர்க்கவும்',
-        disclaimer: '⚠ மருத்துவ மறுப்பு: இது AI உருவாக்கிய தகவல் மட்டுமே. எந்த மருந்தும் எடுப்பதற்கு முன் டாக்டர் ராஜேஸ்வரியை அணுகவும்.',
-      }
-    };
+<!-- INSTALL BANNER -->
+<div id="install-banner" class="hidden">
+  <div class="install-text">
+    <strong id="install-title">Install RRR Clinic App</strong>
+    <span id="install-sub">Add to home screen — works offline</span>
+  </div>
+  <button class="install-btn" onclick="installPWA()">Install</button>
+  <button class="dismiss-btn" onclick="dismissInstall()">×</button>
+</div>
 
-    function t(key) { return translations[currentLang][key] || translations.en[key]; }
+<script>
+  // ── CONFIG ───────────────────────────────────────────────────────────────────
+  const API_URL      = 'https://rrr-clinic-api.kindrock-2ca528ff.centralindia.azurecontainerapps.io';
+  const CLINIC_PHONE = '+919176634174';
+  const WHATSAPP_NUM = '919176634174';
 
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'ta' : 'en';
-      document.getElementById('lang-en').className = currentLang === 'en' ? 'active' : '';
-      document.getElementById('lang-ta').className = currentLang === 'ta' ? 'active' : '';
-      updateUI();
+  // ── STATE ────────────────────────────────────────────────────────────────────
+  let currentLang    = 'en';
+  let selectedFile   = null;
+  let uploadMode     = 'general';
+  let deferredPrompt = null;
+  let lastResponseText = '';
+  let recognition    = null;
+  let isListening    = false;
+
+  const UPLOAD_META = {
+    medicine: { icon:'💊', label:'Medicine Strip', labelTA:'மருந்து பட்டை', stepLabel:'Vision — Reading medicine strip' },
+    tablet:   { icon:'🔬', label:'Tablet / Pill',  labelTA:'மாத்திரை',       stepLabel:'Vision — Identifying tablet' },
+    lab:      { icon:'🧪', label:'Lab Report',     labelTA:'லேப் ரிப்போர்ட்',  stepLabel:'Vision — Reading lab report' },
+    scan:     { icon:'🩻', label:'X-Ray / Scan',   labelTA:'X-Ray / ஸ்கேன்',  stepLabel:'Vision — Analysing X-ray' },
+  };
+
+  // ── TRANSLATIONS ─────────────────────────────────────────────────────────────
+  const translations = {
+    en: {
+      heroTitle:'Ask about medicines & reports',
+      heroSub:'Medicine · Lab Reports · X-Ray · Dosage · Side effects',
+      tabAsk:'Ask AI', tabAppt:'Appointment', tabInfo:'Info',
+      quickLabel:'Quick actions',
+      qc1Title:'Dosage check', qc1Sub:'Paracetamol, Ibuprofen',
+      qc2Title:'Side effects', qc2Sub:'Antibiotics, common drugs',
+      qc3Title:'Drug interaction', qc3Sub:'Is it safe to combine?',
+      qc4Title:'Book appointment', qc4Sub:'Visit Dr. Rajeswari',
+      qc5Title:'Upload Lab Report', qc5Sub:'Blood test, urine test results',
+      qc6Title:'Upload X-Ray', qc6Sub:'Chest, bone, scan images',
+      tamilBtn:'தமிழில் கேள்',
+      placeholder:'Type your question...',
+      loadingText:'Analysing your upload...',
+      steps:['Manas — Understanding question','Chitta — Searching drug database','Buddhi — AI reasoning','Sakshi — Verifying answer'],
+      availText:'● Available today',
+      timingLabel:'Consultation timings', morningLabel:'Morning', eveningLabel:'Evening', closedLabel:'Sunday closed',
+      waBtn:'Book via WhatsApp', callBtn:'Call Clinic',
+      infoLabel:'About this app',
+      aiTitle:'How the AI works', safeTitle:'Safety & Disclaimer', techTitle:'Technology', devTitle:'Developer',
+      installTitle:'Install RRR Clinic App', installSub:'Add to home screen — works offline',
+      tanglishTitle:'🗣️ RRR Clinic Summary (Tanglish)',
+      disclaimer:'⚠ Medical disclaimer: This is AI-generated information only. Please consult Dr. Rajeswari before taking any medication.',
+    },
+    ta: {
+      heroTitle:'மருந்துகள் & ரிப்போர்ட்களைப் பற்றி கேளுங்கள்',
+      heroSub:'மருந்து · லேப் ரிப்போர்ட் · X-Ray · அளவு · பக்க விளைவுகள்',
+      tabAsk:'AI கேள்', tabAppt:'சந்திப்பு', tabInfo:'தகவல்',
+      quickLabel:'விரைவு கேள்விகள்',
+      qc1Title:'அளவு சோதனை', qc1Sub:'பாராசிட்டமால், இப்யூபுரோஃபன்',
+      qc2Title:'பக்க விளைவுகள்', qc2Sub:'நுண்ணுயிர் எதிர்ப்பிகள்',
+      qc3Title:'மருந்து இடைவினை', qc3Sub:'சேர்த்து எடுக்கலாமா?',
+      qc4Title:'சந்திப்பு பதிவு', qc4Sub:'டாக்டர் ராஜேஸ்வரியை சந்திக்கவும்',
+      qc5Title:'லேப் ரிப்போர்ட் பதிவேற்று', qc5Sub:'ரத்த பரிசோதனை முடிவுகள்',
+      qc6Title:'X-Ray பதிவேற்று', qc6Sub:'மார்பு, எலும்பு ஸ்கேன்',
+      tamilBtn:'Type in English',
+      placeholder:'உங்கள் கேள்வியை தட்டச்சு செய்யுங்கள்...',
+      loadingText:'உங்கள் பதிவேற்றத்தை பகுப்பாய்கிறது...',
+      steps:['மனஸ் — கேள்வியை புரிந்துகொள்கிறது','சித்தா — தரவுத்தளம் தேடுகிறது','புத்தி — AI சிந்திக்கிறது','சாட்சி — பதிலை சரிபார்க்கிறது'],
+      availText:'● இன்று கிடைக்கிறார்',
+      timingLabel:'ஆலோசனை நேரங்கள்', morningLabel:'காலை', eveningLabel:'மாலை', closedLabel:'ஞாயிற்றுக்கிழமை மூடல்',
+      waBtn:'WhatsApp மூலம் பதிவு செய்யுங்கள்', callBtn:'கிளினிக்கை அழைக்கவும்',
+      infoLabel:'இந்த செயலியைப் பற்றி',
+      aiTitle:'AI எப்படி வேலை செய்கிறது', safeTitle:'பாதுகாப்பு & மறுப்பு', techTitle:'தொழில்நுட்பம்', devTitle:'டெவலப்பர்',
+      installTitle:'RRR கிளினிக் செயலியை நிறுவுங்கள்', installSub:'முகப்பு திரையில் சேர்க்கவும்',
+      tanglishTitle:'🗣️ RRR கிளினிக் சுருக்கம் (Tanglish)',
+      disclaimer:'⚠ மருத்துவ மறுப்பு: இது AI உருவாக்கிய தகவல் மட்டுமே. எந்த மருந்தும் எடுப்பதற்கு முன் டாக்டர் ராஜேஸ்வரியை அணுகவும்.',
     }
+  };
+  function t(k){ return translations[currentLang][k] || translations.en[k]; }
 
-    function updateUI() {
-      const isT = currentLang === 'ta';
-      const cls = isT ? 'tamil' : '';
-      document.getElementById('hero-title').className = cls;
-      document.getElementById('hero-title').textContent = t('heroTitle');
-      document.getElementById('hero-sub').textContent = t('heroSub');
-      document.getElementById('tab-ask-label').textContent = t('tabAsk');
-      document.getElementById('tab-appt-label').textContent = t('tabAppt');
-      document.getElementById('tab-info-label').textContent = t('tabInfo');
-      document.getElementById('quick-label').textContent = t('quickLabel');
-      document.getElementById('qc1-title').textContent = t('qc1Title');
-      document.getElementById('qc1-sub').textContent = t('qc1Sub');
-      document.getElementById('qc2-title').textContent = t('qc2Title');
-      document.getElementById('qc2-sub').textContent = t('qc2Sub');
-      document.getElementById('qc3-title').textContent = t('qc3Title');
-      document.getElementById('qc3-sub').textContent = t('qc3Sub');
-      document.getElementById('qc4-title').textContent = t('qc4Title');
-      document.getElementById('qc4-sub').textContent = t('qc4Sub');
-      document.getElementById('img-btn-label').textContent = t('imgBtn');
-      document.getElementById('tamil-btn-label').textContent = t('tamilBtn');
-      document.getElementById('question-input').placeholder = t('placeholder');
-      document.getElementById('avail-text').textContent = t('availText');
-      document.getElementById('timing-label').textContent = t('timingLabel');
-      document.getElementById('morning-label').textContent = t('morningLabel');
-      document.getElementById('evening-label').textContent = t('eveningLabel');
-      document.getElementById('closed-label').textContent = t('closedLabel');
-      document.getElementById('wa-btn-label').textContent = t('waBtn');
-      document.getElementById('call-btn-label').textContent = t('callBtn');
-      document.getElementById('info-label').textContent = t('infoLabel');
-      document.getElementById('ai-title').textContent = t('aiTitle');
-      document.getElementById('safe-title').textContent = t('safeTitle');
-      document.getElementById('tech-title').textContent = t('techTitle');
-      document.getElementById('dev-title').textContent = t('devTitle');
-      document.getElementById('install-title').textContent = t('installTitle');
-      document.getElementById('install-sub').textContent = t('installSub');
-      // Update loading steps
-      const steps = t('steps');
-      steps.forEach((s, i) => { const el = document.getElementById(`step-${i}-label`); if (el) el.textContent = s; });
-    }
-
-    function showTab(name, btn) {
-      document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById('screen-' + name).classList.add('active');
-    }
-
-    function autoResize(el) {
-      el.style.height = 'auto';
-      el.style.height = Math.min(el.scrollHeight, 120) + 'px';
-    }
-
-    function toggleTamilInput() {
-      const btn = document.getElementById('tamil-btn-label');
-      const input = document.getElementById('question-input');
-      if (currentLang === 'en') {
-        toggleLang();
-        input.placeholder = 'உங்கள் கேள்வியை தட்டச்சு செய்யுங்கள்...';
-      } else {
-        toggleLang();
-        input.placeholder = 'Type your question...';
-      }
-    }
-
-    function handleImage(event) {
-      const file = event.target.files[0];
-      if (!file) return;
-      selectedImage = file;
-      const reader = new FileReader();
-      reader.onload = e => {
-        document.getElementById('preview-img').src = e.target.result;
-        document.getElementById('img-preview').style.display = 'block';
-        document.getElementById('img-btn').classList.add('active-tool');
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function removeImage() {
-      selectedImage = null;
-      document.getElementById('img-preview').style.display = 'none';
-      document.getElementById('img-btn').classList.remove('active-tool');
-      document.getElementById('img-input').value = '';
-    }
-
-    function askQuick(q) {
-      document.getElementById('question-input').value = q;
-      submitQuestion();
-    }
-
-    async function submitQuestion() {
-      const q = document.getElementById('question-input').value.trim();
-      if (!q) return;
-
-      document.getElementById('response-area').style.display = 'none';
-      document.getElementById('quick-section').style.display = 'none';
-      document.getElementById('loading-card').style.display = 'block';
-      document.getElementById('loading-text').textContent = t('loadingText');
-
-      // Animate steps
-      const stepNames = ['step-0', 'step-1', 'step-2', 'step-3'];
-      stepNames.forEach(s => { document.getElementById(s).className = 'step-dot'; });
-      let stepIdx = 0;
-      const stepTimer = setInterval(() => {
-        if (stepIdx > 0) document.getElementById(stepNames[stepIdx - 1]).className = 'step-dot done';
-        if (stepIdx < stepNames.length) {
-          document.getElementById(stepNames[stepIdx]).className = 'step-dot active';
-          stepIdx++;
-        }
-      }, 900);
-
-      try {
-        const formData = new FormData();
-        formData.append('question', q);
-        if (selectedImage) formData.append('image', selectedImage);
-
-        const res = await fetch(API_URL + '/api/reason', {
-          method: 'POST',
-          body: formData,
-          mode: 'cors'
-        });
-        
-
-        if (!res.ok) throw new Error('API error ' + res.status);
-        const data = await res.json();
-
-        clearInterval(stepTimer);
-        stepNames.forEach(s => { document.getElementById(s).className = 'step-dot done'; });
-
-        setTimeout(() => showResponse(data), 400);
-
-      } catch (err) {
-        clearInterval(stepTimer);
-        document.getElementById('loading-card').style.display = 'none';
-        document.getElementById('quick-section').style.display = 'block';
-
-        // Show error nicely
-        document.getElementById('response-area').style.display = 'block';
-        document.getElementById('final-answer').textContent =
-          'Could not connect to the AI server. Please check your internet connection and try again.\n\nIf the problem persists, please contact the clinic directly.';
-        document.getElementById('disclaimer').textContent = t('disclaimer');
-        document.getElementById('pipeline-chips').innerHTML = '<span class="chip">Connection error</span>';
-        document.getElementById('conf-label').textContent = 'Offline';
-        document.getElementById('conf-fill').style.width = '0%';
-      }
-    }
-
-    function showResponse(data) {
-      document.getElementById('loading-card').style.display = 'none';
-
-      const sakshi   = data.sakshi   || {};
-      const ahamkara = data.ahamkara || {};
-      const buddhi   = data.buddhi   || {};
-      const sr       = buddhi.structured_response || {};
-
-      // Confidence fix
-      const conf = ahamkara.confidence_score || 0;
-      const confPct = conf > 1 ? Math.round(conf) : Math.round(conf * 100);
-      document.getElementById('conf-label').textContent = `Confidence: ${confPct}%`;
-      document.getElementById('conf-fill').style.width = confPct + '%';
-      document.getElementById('conf-fill').style.background =
-        confPct >= 70 ? 'var(--green)' : confPct >= 40 ? 'var(--amber)' : 'var(--rose)';
-
-      let html = '';
-
-      // Vision card
-      const v = data.vision || {};
-      const hasVision = v.brand_name && !['Not visible','Not detected','undefined','null',''].includes(String(v.brand_name));
-      if (hasVision) {
-        html += `<div style="background:rgba(57,208,216,0.08);border:1px solid rgba(57,208,216,0.25);border-radius:12px;padding:12px;margin-bottom:12px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:.5px;color:var(--cyan);margin-bottom:10px;display:flex;align-items:center;gap:6px">
-            👁 VISION EXTRACTION
-            <span style="margin-left:auto;font-size:9px;background:rgba(57,208,216,0.1);border:1px solid rgba(57,208,216,0.2);color:var(--cyan);padding:2px 6px;border-radius:10px">GPT-4o Vision</span>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:6px">
-            ${v.brand_name ? `<div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--txt2);font-weight:600">Brand</span><span style="color:var(--txt0);font-weight:500">${v.brand_name}</span></div>` : ''}
-            ${v.generic_name && v.generic_name !== 'Not detected' ? `<div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--txt2);font-weight:600">Generic</span><span style="color:var(--txt0);font-weight:500">${v.generic_name}</span></div>` : ''}
-            ${v.strength && v.strength !== 'Not visible' ? `<div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--txt2);font-weight:600">Strength</span><span style="color:var(--txt0);font-weight:500">${v.strength}</span></div>` : ''}
-            ${v.form && v.form !== 'Not visible' ? `<div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--txt2);font-weight:600">Form</span><span style="color:var(--txt0);font-weight:500">${v.form}</span></div>` : ''}
-            ${v.manufacturer && v.manufacturer !== 'Not visible' ? `<div style="display:flex;justify-content:space-between;font-size:12px"><span style="color:var(--txt2);font-weight:600">Manufacturer</span><span style="color:var(--txt0);font-weight:500">${v.manufacturer}</span></div>` : ''}
-          </div>
-        </div>`;
-      }
-
-      // Main answer
-      const mainAnswer = sakshi.final_answer || data.final_answer || '';
-      if (mainAnswer) {
-        html += `<div style="font-size:14px;line-height:1.75;color:var(--txt0);margin-bottom:14px">${mainAnswer}</div>`;
-      }
-
-      // Summary
-      if (sr.summary && sr.summary !== mainAnswer) {
-        html += `<div style="background:var(--bg2);border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 12px;margin-bottom:8px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--txt2);text-transform:uppercase;margin-bottom:4px">Summary</div>
-          <div style="font-size:13px;color:var(--txt0);line-height:1.6">${sr.summary}</div>
-        </div>`;
-      }
-
-      // Uses
-      if (sr.uses && sr.uses.length) {
-        html += `<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--txt2);text-transform:uppercase;margin-bottom:8px">💊 Uses</div>
-          <ul style="margin:0;padding-left:16px;font-size:13px;color:var(--txt1);line-height:1.8">${sr.uses.map(u=>`<li>${u}</li>`).join('')}</ul>
-        </div>`;
-      }
-
-      // Dosage
-      if (sr.dosage) {
-        html += `<div style="background:rgba(56,139,253,0.06);border:1px solid rgba(56,139,253,0.25);border-radius:10px;padding:10px 12px;margin-bottom:8px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--blue);text-transform:uppercase;margin-bottom:6px">⚖️ Dosage</div>
-          <div style="font-size:13px;color:var(--txt0);line-height:1.6;font-weight:500">${sr.dosage}</div>
-        </div>`;
-      }
-
-      // Side Effects
-      if (sr.side_effects && sr.side_effects.length) {
-        html += `<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--amber);text-transform:uppercase;margin-bottom:8px">⚠️ Side Effects</div>
-          <ul style="margin:0;padding-left:16px;font-size:13px;color:var(--txt1);line-height:1.8">${sr.side_effects.map(s=>`<li>${s}</li>`).join('')}</ul>
-        </div>`;
-      }
-
-      // Warnings
-      if (sr.warnings && sr.warnings.length) {
-        const warnItems = Array.isArray(sr.warnings) ? sr.warnings : [sr.warnings];
-        html += `<div style="background:rgba(248,81,73,0.06);border:1px solid rgba(248,81,73,0.2);border-radius:10px;padding:10px 12px;margin-bottom:8px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--rose);text-transform:uppercase;margin-bottom:8px">🚫 Warnings</div>
-          <ul style="margin:0;padding-left:16px;font-size:13px;color:var(--txt1);line-height:1.8">${warnItems.map(w=>`<li>${w}</li>`).join('')}</ul>
-        </div>`;
-      }
-
-      // Notes
-      if (sr.notes) {
-        html += `<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px">
-          <div style="font-size:10px;font-weight:700;letter-spacing:.8px;color:var(--txt2);text-transform:uppercase;margin-bottom:4px">📝 Notes</div>
-          <div style="font-size:12px;color:var(--txt1);line-height:1.6">${sr.notes}</div>
-        </div>`;
-      }
-
-      // Sources
-      if (data.sources && data.sources.length) {
-        html += `<div style="font-size:11px;color:var(--txt1);margin:10px 0;display:flex;flex-wrap:wrap;gap:4px;align-items:center">
-          <span style="color:var(--txt2);font-weight:700">**Sources:**</span>
-          ${data.sources.map(s=>`<span style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 7px;font-size:10px;color:var(--txt1)">📄 ${s}</span>`).join('')}
-        </div>`;
-      }
-
-      // Disclaimer
-      html += `<div style="margin-top:10px;padding:10px 12px;background:rgba(210,153,34,0.08);border:1px solid rgba(210,153,34,0.2);border-radius:8px;font-size:11px;color:var(--amber);line-height:1.5">${sakshi.medical_disclaimer || t('disclaimer')}</div>`;
-
-      document.getElementById('final-answer').innerHTML = html;
-      document.getElementById('disclaimer').style.display = 'none';
-      document.getElementById('structured-response').style.display = 'none';
-
-      // Pipeline chips
-      const chips = [];
-      if (sakshi.verified) chips.push('<span class="chip verified">✓ Verified</span>');
-      if (buddhi.model) chips.push(`<span class="chip model">${buddhi.model}</span>`);
-      if (data.manas?.question_type) chips.push(`<span class="chip">${data.manas.question_type}</span>`);
-      if (buddhi.latency_s) chips.push(`<span class="chip">${buddhi.latency_s}s</span>`);
-      document.getElementById('pipeline-chips').innerHTML = chips.join('');
-
-      document.getElementById('quick-section').style.display = 'none';
-      document.getElementById('response-area').style.display = 'block';
-      document.getElementById('response-area').scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      // Store for TTS and show audio button
-      const summaryText = sr.summary || '';
-      const dosageText = sr.dosage ? ' Dosage: ' + sr.dosage : '';
-      lastResponseText = (summaryText + dosageText).trim() || mainAnswer.substring(0, 300);
-      if (lastResponseText) {
-        document.getElementById('audio-player-area').style.display = 'block';
-        document.getElementById('speak-btn-text').textContent = '🔊 கேளுங்கள் (Listen)';
-      }
-    }
-
-        function toggleInfo(card) { card.classList.toggle('open'); }
-
-    function bookWhatsApp() {
-      const msg = encodeURIComponent('Hello Dr. Rajeswari, I would like to book an appointment at Anbu Clinic.');
-      window.open(`https://wa.me/${WHATSAPP_NUM}?text=${msg}`, '_blank');
-    }
-
-    function callClinic() {
-      window.open(`tel:${CLINIC_PHONE}`, '_self');
-    }
-
-    // ── PWA Install ──────────────────────────────────────────────────────────────
-    window.addEventListener('beforeinstallprompt', e => {
-      e.preventDefault();
-      deferredPrompt = e;
-      document.getElementById('install-banner').classList.remove('hidden');
-    });
-
-    function installPWA() {
-      if (!deferredPrompt) return;
-      deferredPrompt.prompt();
-      deferredPrompt.userChoice.then(() => {
-        deferredPrompt = null;
-        dismissInstall();
-      });
-    }
-
-    function dismissInstall() {
-      document.getElementById('install-banner').classList.add('hidden');
-    }
-
-    // Register Service Worker
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js').catch(() => { });
-    }
-
-    // ── VOICE INPUT (Web Speech API) ─────────────────────────────────────────
-    let recognition = null;
-    let isListening = false;
-    let lastResponseText = '';
-
-    function toggleVoice() {
-      if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-        alert('உங்கள் browser voice support செய்யவில்லை. Chrome பயன்படுத்தவும்.');
-        return;
-      }
-      if (isListening) {
-        stopVoice();
-      } else {
-        startVoice();
-      }
-    }
-
-    function startVoice() {
-      const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
-      recognition = new SpeechRec();
-      recognition.continuous = false;
-      recognition.interimResults = true;
-      // Support both Tamil and English (Tanglish)
-      recognition.lang = currentLang === 'ta' ? 'ta-IN' : 'en-IN';
-
-      recognition.onstart = () => {
-        isListening = true;
-        const btn = document.getElementById('voice-btn');
-        btn.classList.add('voice-listening');
-        document.getElementById('voice-btn-label').textContent = '🔴 கேட்கிறேன்...';
-      };
-
-      recognition.onresult = (event) => {
-        let transcript = '';
-        for (let i = event.resultIndex; i < event.results.length; i++) {
-          transcript += event.results[i][0].transcript;
-        }
-        document.getElementById('question-input').value = transcript;
-        autoResize(document.getElementById('question-input'));
-      };
-
-      recognition.onend = () => {
-        stopVoice();
-        const q = document.getElementById('question-input').value.trim();
-        if (q) submitQuestion();
-      };
-
-      recognition.onerror = (e) => {
-        stopVoice();
-        console.log('Voice error:', e.error);
-      };
-
-      recognition.start();
-    }
-
-    function stopVoice() {
-      isListening = false;
-      const btn = document.getElementById('voice-btn');
-      btn.classList.remove('voice-listening');
-      document.getElementById('voice-btn-label').textContent = '🎤 பேசுங்கள்';
-      if (recognition) { try { recognition.stop(); } catch(e) {} }
-    }
-
-    // ── TANGLISH TEXT-TO-SPEECH ───────────────────────────────────────────────
-    function speakResponse() {
-      if (!lastResponseText) return;
-      // Use browser TTS — supports Tamil+English
-      const utterance = new SpeechSynthesisUtterance(lastResponseText);
-      // Pick Tamil voice if available, else default
-      const voices = window.speechSynthesis.getVoices();
-      const tamilVoice = voices.find(v => v.lang === 'ta-IN' || v.lang.startsWith('ta'));
-      if (tamilVoice) utterance.voice = tamilVoice;
-      utterance.lang = currentLang === 'ta' ? 'ta-IN' : 'en-IN';
-      utterance.rate = 0.85;
-      utterance.pitch = 1;
-      document.getElementById('speak-btn-text').textContent = '⏹ நிறுத்து (Stop)';
-      utterance.onend = () => {
-        document.getElementById('speak-btn-text').textContent = '🔊 கேளுங்கள் (Listen)';
-      };
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(utterance);
-    }
-    // ─────────────────────────────────────────────────────────────────────────
-
-    // Init
+  // ── UI helpers ───────────────────────────────────────────────────────────────
+  function showTab(name, btn) {
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('screen-'+name).classList.add('active');
+  }
+  function toggleLang() {
+    currentLang = currentLang==='en'?'ta':'en';
+    document.getElementById('lang-en').className = currentLang==='en'?'active':'';
+    document.getElementById('lang-ta').className = currentLang==='ta'?'active':'';
     updateUI();
-  </script>
-</body>
+  }
+  function updateUI() {
+    const ids = {
+      'hero-title':'heroTitle','hero-sub':'heroSub',
+      'tab-ask-label':'tabAsk','tab-appt-label':'tabAppt','tab-info-label':'tabInfo',
+      'quick-label':'quickLabel',
+      'qc1-title':'qc1Title','qc1-sub':'qc1Sub','qc2-title':'qc2Title','qc2-sub':'qc2Sub',
+      'qc3-title':'qc3Title','qc3-sub':'qc3Sub','qc4-title':'qc4Title','qc4-sub':'qc4Sub',
+      'qc5-title':'qc5Title','qc5-sub':'qc5Sub','qc6-title':'qc6Title','qc6-sub':'qc6Sub',
+      'tamil-btn-label':'tamilBtn',
+      'avail-text':'availText','timing-label':'timingLabel',
+      'morning-label':'morningLabel','evening-label':'eveningLabel','closed-label':'closedLabel',
+      'wa-btn-label':'waBtn','call-btn-label':'callBtn',
+      'info-label':'infoLabel','ai-title':'aiTitle','safe-title':'safeTitle',
+      'tech-title':'techTitle','dev-title':'devTitle',
+      'install-title':'installTitle','install-sub':'installSub',
+      'tanglish-title-text':'tanglishTitle'
+    };
+    Object.entries(ids).forEach(([id,k])=>{ const el=document.getElementById(id); if(el) el.textContent=t(k); });
+    document.getElementById('question-input').placeholder = t('placeholder');
+    document.getElementById('loading-text').textContent = t('loadingText');
+    const steps = t('steps');
+    steps.forEach((s,i)=>{ const el=document.getElementById('step-'+i+'-label'); if(el) el.textContent=s; });
+    // Upload button labels
+    Object.entries(UPLOAD_META).forEach(([mode,m])=>{
+      const el = document.getElementById('label-'+mode);
+      if(el) el.textContent = currentLang==='ta' ? m.labelTA : m.label;
+    });
+  }
+  function autoResize(el){ el.style.height='auto'; el.style.height=Math.min(el.scrollHeight,120)+'px'; }
+  function toggleInfo(card){ card.classList.toggle('open'); }
 
+  // ── FILE UPLOAD ──────────────────────────────────────────────────────────────
+  function triggerUpload(mode) {
+    document.getElementById('input-'+mode).click();
+  }
+  function handleFile(event, mode) {
+    const file = event.target.files[0];
+    if (!file) return;
+    selectedFile = file;
+    uploadMode   = mode;
+    // Clear other inputs
+    ['medicine','tablet','lab','scan'].forEach(m=>{
+      document.getElementById('btn-'+m).classList.remove('active-tool');
+      if(m!==mode) document.getElementById('input-'+m).value='';
+    });
+    document.getElementById('btn-'+mode).classList.add('active-tool');
+    // Show chip
+    const chip = document.getElementById('file-chip');
+    document.getElementById('file-chip-icon').textContent = UPLOAD_META[mode].icon;
+    document.getElementById('file-chip-name').textContent = file.name;
+    chip.classList.add('show');
+  }
+  function removeFile() {
+    selectedFile = null;
+    uploadMode   = 'general';
+    ['medicine','tablet','lab','scan'].forEach(m=>{
+      document.getElementById('btn-'+m).classList.remove('active-tool');
+      document.getElementById('input-'+m).value='';
+    });
+    document.getElementById('file-chip').classList.remove('show');
+  }
+
+  // ── QUICK + TAMIL ────────────────────────────────────────────────────────────
+  function askQuick(q){ document.getElementById('question-input').value=q; submitQuestion(); }
+  function toggleTamilInput(){
+    if(currentLang==='en'){ toggleLang(); document.getElementById('question-input').placeholder='உங்கள் கேள்வியை தட்டச்சு செய்யுங்கள்...'; }
+    else { toggleLang(); document.getElementById('question-input').placeholder='Type your question...'; }
+  }
+
+  // ── STEP ANIMATION ───────────────────────────────────────────────────────────
+  let stepTimer = null;
+  function startStepAnimation() {
+    const stepNames=['step-0','step-1','step-2','step-3'];
+    stepNames.forEach(s=>{ document.getElementById(s).className='step-dot'; });
+    // Update step 1 label based on mode
+    if(uploadMode!=='general' && UPLOAD_META[uploadMode]) {
+      document.getElementById('step-1-label').textContent = UPLOAD_META[uploadMode].stepLabel;
+    } else {
+      document.getElementById('step-1-label').textContent = t('steps')[1];
+    }
+    let idx=0;
+    stepTimer = setInterval(()=>{
+      if(idx>0) document.getElementById(stepNames[idx-1]).className='step-dot done';
+      if(idx<stepNames.length){ document.getElementById(stepNames[idx]).className='step-dot active'; idx++; }
+    }, 900);
+  }
+  function stopStepAnimation() {
+    clearInterval(stepTimer);
+    ['step-0','step-1','step-2','step-3'].forEach(s=>{ document.getElementById(s).className='step-dot done'; });
+  }
+
+  // ── SUBMIT ───────────────────────────────────────────────────────────────────
+  async function submitQuestion() {
+    const q = document.getElementById('question-input').value.trim();
+    if (!q && !selectedFile) return;
+
+    document.getElementById('response-area').style.display = 'none';
+    document.getElementById('quick-section').style.display = 'none';
+    document.getElementById('loading-card').style.display = 'block';
+    document.getElementById('loading-text').textContent = t('loadingText');
+    startStepAnimation();
+
+    try {
+      const formData = new FormData();
+      formData.append('question', q || 'Analyse this upload and explain everything in detail');
+      formData.append('mode', selectedFile ? uploadMode : 'general');
+      if (selectedFile) formData.append('image', selectedFile);
+
+      const res = await fetch(API_URL + '/api/analyze', { method:'POST', body:formData, mode:'cors' });
+      if (!res.ok) throw new Error('API error ' + res.status);
+      const data = await res.json();
+
+      stopStepAnimation();
+      setTimeout(()=>showResponse(data), 400);
+
+    } catch(err) {
+      stopStepAnimation();
+      document.getElementById('loading-card').style.display = 'none';
+      document.getElementById('quick-section').style.display = 'block';
+      document.getElementById('vision-card-area').innerHTML = '';
+      document.getElementById('tool-card-area').innerHTML   = '';
+      document.getElementById('struct-card-area').innerHTML = '';
+      document.getElementById('tanglish-box').style.display = 'none';
+      document.getElementById('final-answer').textContent   = '⚠️ Could not connect to the AI server. Please check your internet connection and try again.\n\nIf the problem persists, please contact the clinic directly.';
+      document.getElementById('disclaimer').textContent     = t('disclaimer');
+      document.getElementById('disclaimer').style.display   = 'block';
+      document.getElementById('pipeline-chips').innerHTML   = '<span class="chip">Connection error</span>';
+      document.getElementById('conf-label').textContent     = 'Offline';
+      document.getElementById('conf-fill').style.width      = '0%';
+      document.getElementById('response-area').style.display= 'block';
+    }
+  }
+
+  // ── SHOW RESPONSE ────────────────────────────────────────────────────────────
+  function showResponse(data) {
+    document.getElementById('loading-card').style.display = 'none';
+
+    const sakshi   = data.sakshi   || {};
+    const ahamkara = data.ahamkara || {};
+    const buddhi   = data.buddhi   || {};
+    const sr       = buddhi.structured_response || {};
+
+    // Confidence
+    const conf    = ahamkara.confidence_score || 0;
+    const confPct = conf>1 ? Math.round(conf) : Math.round(conf*100);
+    document.getElementById('conf-label').textContent    = 'Confidence: '+confPct+'%';
+    document.getElementById('conf-fill').style.width     = confPct+'%';
+    document.getElementById('conf-fill').style.background= confPct>=70?'var(--green)':confPct>=40?'var(--amber)':'var(--rose)';
+
+    // ── 1. Vision card ──────────────────────────────────────────────────
+    const v = data.vision || {};
+    const badVals = ['Not visible','Not detected','Unknown','N/A','undefined','null','','none'];
+    const visGood = k => v[k] && !badVals.includes(String(v[k]).trim());
+    const hasVision = visGood('brand_name') || visGood('generic_name');
+
+    document.getElementById('vision-card-area').innerHTML = '';
+    if (hasVision || (v.extraction_method && !['None','failed',''].includes(v.extraction_method))) {
+      const vFields = [
+        ['💊 Brand', v.brand_name, false],
+        ['🧬 Generic', v.generic_name, false],
+        ['💪 Strength', v.strength, false],
+        ['💉 Form', v.form, false],
+        ['🏭 Manufacturer', v.manufacturer, false],
+        ['📅 Expiry', v.expiry_date, true],
+        ['🗓 Mfg Date', v.manufacturing_date, false],
+        ['🔢 Batch', v.batch_number, false],
+      ].filter(([,val])=>val&&!badVals.includes(String(val).trim()));
+
+      if(vFields.length) {
+        document.getElementById('vision-card-area').innerHTML = `
+          <div class="vision-card">
+            <div class="vision-title">
+              <span class="vision-dot"></span>
+              VISION EXTRACTION${v.extraction_method ? ' · '+v.extraction_method : ''}
+            </div>
+            ${vFields.map(([k,val,isExp])=>`
+              <div class="vision-row">
+                <span class="vision-key">${k}</span>
+                <span class="vision-val${isExp?' expiry':''}">${val}</span>
+              </div>`).join('')}
+          </div>`;
+      }
+    }
+
+    // ── 2. Tool result (Expired / Valid) ────────────────────────────────
+    document.getElementById('tool-card-area').innerHTML = '';
+    const tr = data.tool_result || {};
+    if (tr.result && !tr.error) {
+      const isExp  = tr.result.toUpperCase().includes('EXPIRED');
+      const isVal  = tr.result.toUpperCase().includes('VALID') || tr.result.toUpperCase().includes('NOT EXPIRED');
+      const bg     = isExp ? 'rgba(248,81,73,0.08)' : isVal ? 'rgba(63,185,80,0.08)' : 'rgba(56,139,253,0.08)';
+      const border = isExp ? 'var(--rose)'           : isVal ? 'var(--green)'         : 'var(--blue)';
+      const col    = isExp ? 'var(--rose)'           : isVal ? 'var(--green)'         : 'var(--txt0)';
+      const title  = isExp ? '🚨 MEDICINE EXPIRED'  : isVal ? '✅ MEDICINE VALID'    : '📋 Check Result';
+      let toolHTML = `<div class="tool-card" style="background:${bg};border:2px solid ${border}">
+        <div class="tool-card-title" style="color:${col}">${title}</div>
+        <div class="tool-card-body" style="color:${col}">${tr.result}</div>`;
+      if(tr.reactions && tr.reactions.length) {
+        toolHTML += `<div style="font-size:10px;font-weight:700;color:var(--txt2);letter-spacing:.5px;margin-top:12px;margin-bottom:6px">📊 FDA ADVERSE EVENT REPORTS</div>
+          <table class="fda-table">${tr.reactions.map(r=>`<tr><td style="color:var(--txt0);font-size:12px">${r.reaction}</td><td class="fda-count">${(r.count||0).toLocaleString()}</td></tr>`).join('')}</table>`;
+      }
+      toolHTML += '</div>';
+      document.getElementById('tool-card-area').innerHTML = toolHTML;
+    }
+
+    // ── 3. Structured card (Lab / Scan) ─────────────────────────────────
+    document.getElementById('struct-card-area').innerHTML = '';
+    if (uploadMode==='lab' && sr.findings) {
+      document.getElementById('struct-card-area').innerHTML = renderLabCard(sr);
+    } else if (uploadMode==='scan' && (sr.findings || sr.impression)) {
+      document.getElementById('struct-card-area').innerHTML = renderScanCard(sr);
+    }
+
+    // ── 4. Main answer ──────────────────────────────────────────────────
+    const mainAnswer = sakshi.final_answer || data.final_answer || '';
+    let ansHTML = '';
+    if(mainAnswer) ansHTML += `<div style="font-size:14px;line-height:1.75;color:var(--txt0);margin-bottom:10px">${mainAnswer}</div>`;
+    // Uses / Dosage / Side Effects / Warnings / Notes from sr
+    if(sr.summary&&sr.summary!==mainAnswer) ansHTML+=`<div style="background:var(--bg2);border-left:3px solid var(--blue);border-radius:0 8px 8px 0;padding:10px 12px;margin-bottom:8px"><div style="font-size:10px;font-weight:700;color:var(--txt2);text-transform:uppercase;margin-bottom:4px">Summary</div><div style="font-size:13px;color:var(--txt0);line-height:1.6">${sr.summary}</div></div>`;
+    if(sr.uses&&sr.uses.length) ansHTML+=`<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px"><div style="font-size:10px;font-weight:700;color:var(--txt2);text-transform:uppercase;margin-bottom:6px">💊 Uses</div><ul style="margin:0;padding-left:16px;font-size:13px;color:var(--txt1);line-height:1.8">${sr.uses.map(u=>`<li>${u}</li>`).join('')}</ul></div>`;
+    if(sr.dosage) ansHTML+=`<div style="background:rgba(56,139,253,0.06);border:1px solid rgba(56,139,253,0.25);border-radius:10px;padding:10px 12px;margin-bottom:8px"><div style="font-size:10px;font-weight:700;color:var(--blue);text-transform:uppercase;margin-bottom:6px">⚖️ Dosage</div><div style="font-size:13px;color:var(--txt0);line-height:1.6;font-weight:500">${sr.dosage}</div></div>`;
+    if(sr.side_effects&&sr.side_effects.length) ansHTML+=`<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px"><div style="font-size:10px;font-weight:700;color:var(--amber);text-transform:uppercase;margin-bottom:6px">⚠️ Side Effects</div><ul style="margin:0;padding-left:16px;font-size:13px;color:var(--txt1);line-height:1.8">${sr.side_effects.map(s=>`<li>${s}</li>`).join('')}</ul></div>`;
+    if(sr.warnings&&sr.warnings.length){ const w=Array.isArray(sr.warnings)?sr.warnings:[sr.warnings]; ansHTML+=`<div style="background:rgba(248,81,73,0.06);border:1px solid rgba(248,81,73,0.2);border-radius:10px;padding:10px 12px;margin-bottom:8px"><div style="font-size:10px;font-weight:700;color:var(--rose);text-transform:uppercase;margin-bottom:6px">🚫 Warnings</div><ul style="margin:0;padding-left:16px;font-size:13px;color:var(--txt1);line-height:1.8">${w.map(x=>`<li>${x}</li>`).join('')}</ul></div>`; }
+    if(sr.notes) ansHTML+=`<div style="background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:8px"><div style="font-size:10px;font-weight:700;color:var(--txt2);text-transform:uppercase;margin-bottom:4px">📝 Notes</div><div style="font-size:12px;color:var(--txt1);line-height:1.6">${sr.notes}</div></div>`;
+    if(data.sources&&data.sources.length) ansHTML+=`<div style="font-size:11px;color:var(--txt1);margin:10px 0;display:flex;flex-wrap:wrap;gap:4px;align-items:center"><span style="color:var(--txt2);font-weight:700">Sources:</span>${data.sources.map(s=>`<span style="background:var(--bg3);border:1px solid var(--border);border-radius:6px;padding:2px 7px;font-size:10px;color:var(--txt1)">📄 ${s}</span>`).join('')}</div>`;
+    document.getElementById('final-answer').innerHTML = ansHTML;
+
+    // Disclaimer
+    const disc = sakshi.medical_disclaimer || t('disclaimer');
+    document.getElementById('disclaimer').textContent = disc;
+    document.getElementById('disclaimer').style.display = 'block';
+
+    // Pipeline chips
+    const chips=[];
+    if(sakshi.verified) chips.push('<span class="chip verified">✓ Verified</span>');
+    if(buddhi.model) chips.push(`<span class="chip model">${buddhi.model}</span>`);
+    if(data.manas?.question_type) chips.push(`<span class="chip">${data.manas.question_type}</span>`);
+    if(buddhi.latency_s) chips.push(`<span class="chip">${buddhi.latency_s}s</span>`);
+    if(uploadMode!=='general') chips.push(`<span class="chip">${UPLOAD_META[uploadMode]?.icon} ${uploadMode}</span>`);
+    document.getElementById('pipeline-chips').innerHTML = chips.join('');
+
+    // Show & scroll
+    document.getElementById('quick-section').style.display = 'none';
+    document.getElementById('response-area').style.display = 'block';
+    document.getElementById('response-area').scrollIntoView({behavior:'smooth',block:'start'});
+
+    // TTS - initial from sr or final_answer
+    const summaryText = sr.summary||'';
+    const dosageText  = sr.dosage?' Dosage: '+sr.dosage:'';
+    lastResponseText  = (summaryText+dosageText).trim() || mainAnswer.substring(0,300);
+    if(lastResponseText){
+      document.getElementById('audio-player-area').style.display='block';
+      document.getElementById('speak-btn-text').textContent='🔊 கேளுங்கள் (Listen)';
+    }
+
+    // ── 5. Tanglish summary (async) ──────────────────────────────────────
+    const tBox = document.getElementById('tanglish-box');
+    const tText = document.getElementById('tanglish-text');
+    tBox.style.display = 'block';
+    tText.innerHTML = '<span class="tanglish-loading">⏳ Tanglish summary தயாராகுது...</span>';
+
+    generateTanglishSummary(data).then(summary=>{
+      if(summary){
+        tText.textContent = summary;
+        lastResponseText  = summary; // use tanglish for TTS
+        document.getElementById('audio-player-area').style.display='block';
+        document.getElementById('speak-btn-text').textContent='🔊 கேளுங்கள் (Listen)';
+      } else {
+        tBox.style.display='none';
+      }
+    }).catch(()=>{ tBox.style.display='none'; });
+  }
+
+  // ── LAB CARD RENDERER ────────────────────────────────────────────────────────
+  function renderLabCard(sr) {
+    const urgency = sr.urgency || 'low';
+    const uCfg = {
+      low:    { color:'#3fb950', bg:'rgba(63,185,80,0.08)',   border:'rgba(63,185,80,0.25)',   label:'✅ Normal' },
+      medium: { color:'#d29922', bg:'rgba(210,153,34,0.08)', border:'rgba(210,153,34,0.25)', label:'⚠️ Attention' },
+      high:   { color:'#f85149', bg:'rgba(248,81,73,0.08)',  border:'rgba(248,81,73,0.25)',  label:'🚨 Urgent' },
+    }[urgency] || { color:'#3fb950', bg:'rgba(63,185,80,0.08)', border:'rgba(63,185,80,0.25)', label:'✅ Normal' };
+
+    const findings = sr.findings || [];
+    let rows = '';
+    if(findings.length){
+      rows = `<table class="lab-table">
+        <thead><tr><th>Test</th><th>Value</th><th>Normal Range</th><th>Note</th></tr></thead>
+        <tbody>${findings.map(f=>{
+          const statusCls = f.status==='low'?'low':f.status==='high'?'high':'normal';
+          return `<tr>
+            <td style="font-weight:600;color:var(--txt0)">${f.test||''}</td>
+            <td><span class="lab-val ${statusCls}">${f.value||''}</span></td>
+            <td style="font-size:11px;color:var(--txt2)">${f.normal_range||''}</td>
+            <td style="font-size:11px;color:var(--txt2)">${f.note||''}</td>
+          </tr>`;
+        }).join('')}</tbody>
+      </table>`;
+    }
+
+    const reco = sr.recommendation || sr.summary || '';
+    return `<div class="lab-card">
+      <span class="lab-urgency" style="background:${uCfg.bg};border:1px solid ${uCfg.border};color:${uCfg.color}">${uCfg.label}</span>
+      ${rows}
+      ${reco ? `<div class="lab-reco"><strong>📋 Recommendation:</strong> ${reco}</div>` : ''}
+    </div>`;
+  }
+
+  // ── SCAN CARD RENDERER ───────────────────────────────────────────────────────
+  function renderScanCard(sr) {
+    const region   = sr.region || 'Scan';
+    const findings = sr.findings || [];
+    const impression   = sr.impression || '';
+    const recommendation = sr.recommendation || '';
+    return `<div class="scan-card">
+      <div class="scan-region">🩻 ${region}</div>
+      ${findings.length ? `<ul class="scan-findings">${findings.map(f=>`<li>${f}</li>`).join('')}</ul>` : ''}
+      ${impression ? `<div class="scan-impression"><strong style="color:var(--cyan);font-size:10px;font-weight:700;letter-spacing:.5px;text-transform:uppercase">Impression</strong><br/>${impression}</div>` : ''}
+      ${recommendation ? `<div class="scan-reco"><strong>📋 Recommendation:</strong> ${recommendation}</div>` : ''}
+    </div>`;
+  }
+
+  // ── TANGLISH SUMMARY (Claude API) ───────────────────────────────────────────
+  async function generateTanglishSummary(data) {
+    try {
+      const sakshi = data.sakshi || {};
+      const buddhi = data.buddhi || {};
+      const v      = data.vision || {};
+      const sr     = buddhi.structured_response || {};
+      const tr     = data.tool_result || {};
+
+      let context = sakshi.final_answer || data.final_answer || '';
+
+      // Add vision info
+      if(v.brand_name && !['Not visible','Not detected'].includes(v.brand_name))
+        context += ` Medicine name: ${v.brand_name}${v.generic_name?' ('+v.generic_name+')':''}.`;
+      if(v.strength) context += ` Strength: ${v.strength}.`;
+      if(v.expiry_date) context += ` Expiry date: ${v.expiry_date}.`;
+      if(tr.result) context += ` Status: ${tr.result}.`;
+
+      // Add lab findings
+      if(sr.findings && sr.findings.length) {
+        const abnormal = sr.findings.filter(f=>f.status==='low'||f.status==='high');
+        if(abnormal.length) context += ` Abnormal findings: ${abnormal.map(f=>`${f.test} ${f.value} (${f.status})`).join(', ')}.`;
+        if(sr.recommendation) context += ` Recommendation: ${sr.recommendation}.`;
+      }
+      // Scan info
+      if(sr.impression) context += ` Scan impression: ${sr.impression}.`;
+
+      if(!context.trim()) return '';
+
+      const prompt = `You are a helpful assistant for RRR Village Clinic in Tamil Nadu, serving rural patients. 
+Write EXACTLY 5 short sentences summarising this medical information in Tanglish (Tamil words written in English letters, mixed with simple English medical terms). 
+Write naturally as if you are a friendly clinic helper speaking to a village patient who understands spoken Tamil but not medical English.
+Use simple everyday Tamil words in English letters. Do not use complex medical English. Do not use Tamil script. Do not number the sentences. Do not use headings. Write all 5 sentences as plain text on separate lines.
+
+Example style:
+"Ithu Dolo 650 maathirai, paracetamol ingredients irukkum. Fever, headache, body pain ku use pannalaam. Oru naal ku 3 times varaikkum edukkalaam, saapttu vittu edukkaanum. Expiry 2026 varaikku valid aaga irukkum. Yedhavathu problem aanalum ungal doctor Dr. Rajeswari kitta kaattunga."
+
+Medical information to summarise in Tanglish:
+${context}`;
+
+      const res = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 400,
+          messages: [{ role:'user', content:prompt }]
+        })
+      });
+      if(!res.ok) return '';
+      const d = await res.json();
+      return (d.content?.[0]?.text || '').trim();
+    } catch(e) {
+      console.warn('Tanglish summary failed:', e);
+      return '';
+    }
+  }
+
+  // ── VOICE INPUT ──────────────────────────────────────────────────────────────
+  function toggleVoice() {
+    if(!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)){
+      alert('உங்கள் browser voice support செய்யவில்லை. Chrome பயன்படுத்தவும்.');
+      return;
+    }
+    isListening ? stopVoice() : startVoice();
+  }
+  function startVoice() {
+    const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRec();
+    recognition.continuous = false;
+    recognition.interimResults = true;
+    recognition.lang = currentLang==='ta' ? 'ta-IN' : 'en-IN';
+    recognition.onstart = ()=>{ isListening=true; document.getElementById('voice-btn').classList.add('voice-listening'); document.getElementById('voice-btn-label').textContent='🔴 கேட்கிறேன்...'; };
+    recognition.onresult = e=>{ let t=''; for(let i=e.resultIndex;i<e.results.length;i++) t+=e.results[i][0].transcript; const inp=document.getElementById('question-input'); inp.value=t; autoResize(inp); };
+    recognition.onend = ()=>{ stopVoice(); const q=document.getElementById('question-input').value.trim(); if(q) submitQuestion(); };
+    recognition.onerror = ()=>stopVoice();
+    recognition.start();
+  }
+  function stopVoice() {
+    isListening=false;
+    document.getElementById('voice-btn').classList.remove('voice-listening');
+    document.getElementById('voice-btn-label').textContent='🎤 பேசுங்கள்';
+    try{ if(recognition) recognition.stop(); }catch(e){}
+  }
+
+  // ── TTS ──────────────────────────────────────────────────────────────────────
+  function speakResponse() {
+    if(!lastResponseText) return;
+    const utter = new SpeechSynthesisUtterance(lastResponseText);
+    const voices = window.speechSynthesis.getVoices();
+    const tVoice = voices.find(v=>v.lang==='ta-IN'||v.lang.startsWith('ta'));
+    if(tVoice) utter.voice=tVoice;
+    utter.lang  = currentLang==='ta'?'ta-IN':'en-IN';
+    utter.rate  = 0.85;
+    utter.pitch = 1;
+    document.getElementById('speak-btn-text').textContent='⏹ நிறுத்து (Stop)';
+    utter.onend = ()=>{ document.getElementById('speak-btn-text').textContent='🔊 கேளுங்கள் (Listen)'; };
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utter);
+  }
+
+  // ── APPOINTMENT ──────────────────────────────────────────────────────────────
+  function bookWhatsApp() {
+    const msg = encodeURIComponent('Hello Dr. Rajeswari, I would like to book an appointment at RRR Village Clinic.');
+    window.open(`https://wa.me/${WHATSAPP_NUM}?text=${msg}`, '_blank');
+  }
+  function callClinic() { window.open(`tel:${CLINIC_PHONE}`, '_self'); }
+
+  // ── PWA ──────────────────────────────────────────────────────────────────────
+  window.addEventListener('beforeinstallprompt', e=>{
+    e.preventDefault(); deferredPrompt=e;
+    document.getElementById('install-banner').classList.remove('hidden');
+  });
+  function installPWA() {
+    if(!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(()=>{ deferredPrompt=null; dismissInstall(); });
+  }
+  function dismissInstall() { document.getElementById('install-banner').classList.add('hidden'); }
+  if('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{});
+
+  // ── INIT ─────────────────────────────────────────────────────────────────────
+  updateUI();
+</script>
+</body>
 </html>
